@@ -2,11 +2,11 @@ import "./App.css";
 import "antd/dist/antd.css";
 import { Layout } from "antd";
 import React from "react";
-import Listing from "./components/Listing";
+import TableContent from "./components/TableContent";
+import ContentLayout from "./components/ContentLayout";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import ToggleButton from "./components/ToggleButton";
-const { Content } = Layout;
 class App extends React.Component {
   state = {
     collapsed: false,
@@ -25,15 +25,9 @@ class App extends React.Component {
         <Layout className="site-layout">
           {this.state.collapsed && <ToggleButton toggle={this.toggle} />}
           <Header />
-          <Content
-            className="site-layout-background"
-            style={{
-              padding: 24,
-              minHeight: 280,
-            }}
-          >
-            <Listing />
-          </Content>
+          <ContentLayout>
+            <TableContent />
+          </ContentLayout>
         </Layout>
       </Layout>
     );

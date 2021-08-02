@@ -37,7 +37,7 @@ for (let i = 0; i < 46; i++) {
   });
 }
 
-class Listing extends React.Component {
+class TableContent extends React.Component {
   state = {
     selectedRowKeys: [], // Check here to configure the default column
   };
@@ -113,4 +113,4 @@ class Listing extends React.Component {
   }
 }
 
-export default Listing;
+export default TableContent;

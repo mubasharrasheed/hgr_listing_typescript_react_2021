@@ -1,7 +1,7 @@
 import { Layout, Menu } from "antd";
 import React, { Component } from "react";
 
-import Listing from "./Listing";
+import Listing from "./TableContent";
 import logo from "../assets/logo.svg";
 import dashboard from "../assets/dashboard.svg";
 import catalog from "../assets/catalog.svg";

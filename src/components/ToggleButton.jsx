@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ToggleButton({toggle}) {
+export default function ToggleButton({ toggle }) {
   return (
     <i
       onClick={toggle}

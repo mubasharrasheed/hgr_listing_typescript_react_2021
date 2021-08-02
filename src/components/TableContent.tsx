@@ -2,7 +2,7 @@ import { Table } from "antd";
 import React from "react";
 import img from "../assets/icon.png";
 import SmallTabs from "./SmallComponents/SmallTabs";
-import {columns} from '../data'
+import { columns } from "../data";
 
 const data: any = [];
 for (let i = 0; i < 46; i++) {

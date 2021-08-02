@@ -29,7 +29,7 @@ class App extends React.Component {
         <Layout className="site-layout">
           {this.state.collapsed && <ToggleButton toggle={this.toggle} />}
           <HeaderLayout>
-            <Notifications />
+            <Notifications title={"Listings"} />
             <SearchBar />
             <TabsList />
           </HeaderLayout>

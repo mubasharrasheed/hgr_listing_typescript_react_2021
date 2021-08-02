@@ -4,9 +4,13 @@ import { Layout } from "antd";
 import React from "react";
 import TableContent from "./components/TableContent";
 import ContentLayout from "./components/ContentLayout";
-import Header from "./components/Header";
+import HeaderLayout from "./components/HeaderLayout";
 import Sidebar from "./components/Sidebar";
 import ToggleButton from "./components/ToggleButton";
+import TabsList from "./components/SmallComponents/TabsList";
+import SearchBar from "./components/SmallComponents/SearchBar";
+import Notifications from "./components/Notifications";
+
 class App extends React.Component {
   state = {
     collapsed: false,
@@ -24,7 +28,11 @@ class App extends React.Component {
         <Sidebar toggle={this.toggle} collapsed={this.state.collapsed} />
         <Layout className="site-layout">
           {this.state.collapsed && <ToggleButton toggle={this.toggle} />}
-          <Header />
+          <HeaderLayout>
+            <Notifications />
+            <SearchBar />
+            <TabsList />
+          </HeaderLayout>
           <ContentLayout>
             <TableContent />
           </ContentLayout>

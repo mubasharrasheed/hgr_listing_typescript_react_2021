@@ -86,7 +86,6 @@ for (let i = 0; i < 46; i++) {
     ),
   });
 }
-console.log(data);
 
 class Listing extends React.Component {
   state = {

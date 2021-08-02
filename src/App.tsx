@@ -1,9 +1,8 @@
 import "./App.css";
 import "antd/dist/antd.css";
-import { Layout, Menu } from "antd";
+import { Layout } from "antd";
 import React from "react";
 import Listing from "./components/Listing";
-
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import ToggleButton from "./components/ToggleButton";

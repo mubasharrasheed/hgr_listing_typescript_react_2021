@@ -8,14 +8,10 @@ import services from "../assets/services.svg";
 import help from "../assets/help.svg";
 import { Layout, Menu } from "antd";
 const { Sider } = Layout;
-export default function Sidebar({collapsed,toggle}) {
+export default function Sidebar(props:any) {
+  const { collapsed, toggle } = props;
   return (
-    <Sider
-      theme="light"
-      trigger={null}
-      collapsible
-      collapsed={collapsed}
-    >
+    <Sider theme="light" trigger={null} collapsible collapsed={collapsed}>
       <div className="logo" />
       <Menu theme="light" mode="inline" defaultSelectedKeys={["4"]}>
         <Menu.Item key="0" icon={<img src={logo} height={30} />}>

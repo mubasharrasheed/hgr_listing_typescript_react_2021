@@ -3,7 +3,7 @@ import ring_icon from "../assets/notification.svg";
 import flag from "../assets/flag-round-500.svg";
 import amazon from "../assets/amazon-icon-1.svg";
 import { Menu, Dropdown, Button, Space } from "antd";
-import DropDownMenu from './SmallComponents/DropDownMenu'
+import DropDownMenu from "./SmallComponents/DropDownMenu";
 
 import TabsList from "./SmallComponents/TabsList";
 import SearchBar from "./SmallComponents/SearchBar";
@@ -17,7 +17,7 @@ function Header(props: any) {
       }}
     />
   );
-  
+
   return (
     <div>
       <div className="bg-trans" style={{ padding: 0 }}>
@@ -43,7 +43,10 @@ function Header(props: any) {
                 <div className="ml-auto">
                   <Space direction="vertical">
                     <Space wrap>
-                      <Dropdown overlay={<DropDownMenu />} placement="bottomLeft">
+                      <Dropdown
+                        overlay={<DropDownMenu />}
+                        placement="bottomLeft"
+                      >
                         <Button>
                           <i className="fas fa-ellipsis-v"></i>
                         </Button>
@@ -54,7 +57,6 @@ function Header(props: any) {
               </div>
             </div>
           </div>
-
           <SearchBar />
           <TabsList />
         </div>

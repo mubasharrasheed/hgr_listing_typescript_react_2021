@@ -2,58 +2,7 @@ import { Table } from "antd";
 import React from "react";
 import img from "../assets/icon.png";
 import SmallTabs from "./SmallComponents/SmallTabs";
-const columns = [
-  {
-    title: "",
-    dataIndex: "img",
-    key: "img",
-  },
-  {
-    title: "item no.",
-    dataIndex: "item",
-    key: "item",
-  },
-  {
-    title: "Source",
-    dataIndex: "src",
-    key: "src",
-  },
-  {
-    title: "Title",
-    dataIndex: "title",
-    key: "title",
-  },
-  {
-    title: "Sell",
-    dataIndex: "sell",
-    key: "sell",
-  },
-  {
-    title: "Cost",
-    dataIndex: "cost",
-    key: "cost",
-  },
-  {
-    title: "Profile",
-    dataIndex: "profile",
-    key: "profile",
-  },
-  {
-    title: "Markup",
-    dataIndex: "markup",
-    key: "markup",
-  },
-  {
-    title: "Stock",
-    dataIndex: "stock",
-    key: "stock",
-  },
-  {
-    title: "Created on",
-    dataIndex: "created",
-    key: "created",
-  },
-];
+import {columns} from '../data'
 
 const data: any = [];
 for (let i = 0; i < 46; i++) {

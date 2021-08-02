@@ -21,7 +21,7 @@ export default function DropDownMenu() {
           </div>
           <div className="col-md-12">
             <div className="d-flex my-1">
-              <span className="d-blue small">Quota:45%(12/30)</span>
+              <span className="d-blue small mb-3 mt-2">Quota:45%(12/30)</span>
               <span className="text-success ml-auto small">Upgrade</span>
             </div>
           </div>

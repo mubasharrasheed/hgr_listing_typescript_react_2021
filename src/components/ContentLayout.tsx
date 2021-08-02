@@ -2,8 +2,10 @@ import React from "react";
 import { Layout } from "antd";
 
 const { Content } = Layout;
-
-export default function ContentLayout(props: any) {
+interface Props {
+  children: React.ReactNode;
+}
+export default function ContentLayout(props: Props) {
   return (
     <Content
       className="site-layout-background"

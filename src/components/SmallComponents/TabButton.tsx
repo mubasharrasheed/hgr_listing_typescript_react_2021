@@ -1,6 +1,11 @@
 import React from "react";
-
-export default function TabButton(props: any) {
+interface Props {
+  title: string;
+  active: number;
+  index: number;
+  onChangeTab: () => number;
+}
+export default function TabButton(props: Props) {
   const { title, active, onChangeTab, index } = props;
   return (
     <div className="col pl-lg-0 my-2 my-md-0 lh-1">

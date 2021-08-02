@@ -8,7 +8,12 @@ import services from "../assets/services.svg";
 import help from "../assets/help.svg";
 import { Layout, Menu } from "antd";
 const { Sider } = Layout;
-export default function Sidebar(props:any) {
+interface Props {
+  collapsed: boolean;
+  toggle: () => void
+}
+
+export default function Sidebar(props: Props) {
   const { collapsed, toggle } = props;
   return (
     <Sider theme="light" trigger={null} collapsible collapsed={collapsed}>

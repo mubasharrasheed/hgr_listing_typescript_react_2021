@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TabButton from "./TabButton";
 export default function TabsList() {
   const [active, setActive] = useState(1);
-  const onChangeTab = (value: any) => {
+  const onChangeTab = (value: number) => {
     setActive(value);
   };
   return (

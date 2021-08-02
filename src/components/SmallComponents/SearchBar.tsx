@@ -4,7 +4,7 @@ import list_saerch from "../../assets/list_search.jpg";
 import { Input } from "antd";
 const { Search } = Input;
 
-export default function SearchBar(props: any) {
+export default function SearchBar() {
   return (
     <div className="row mx-auto py-3">
       <div className="col-md-5 pl-lg-0 my-2 my-md-0 lh-1">

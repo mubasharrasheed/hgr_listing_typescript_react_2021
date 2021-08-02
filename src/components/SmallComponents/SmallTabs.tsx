@@ -1,6 +1,9 @@
 import React from "react";
-
-export default function SmallTabs(props: any) {
+interface Props {
+  title: string;
+  last: boolean;
+}
+export default function SmallTabs(props: Props) {
   const { title, last } = props;
   return (
     <div className={`col ${!last ? "border-right border-primary" : ""}`}>

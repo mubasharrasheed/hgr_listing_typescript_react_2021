@@ -1,6 +1,9 @@
 import React from "react";
-
-export default function ToggleButton({ toggle }) {
+interface Props {
+  toggle: () => void;
+}
+export default function ToggleButton(props: Props) {
+  const { toggle } = props;
   return (
     <i
       onClick={toggle}

@@ -6,6 +6,7 @@ import Listing from "./components/Listing";
 
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+import ToggleButton from "./components/ToggleButton";
 const { Content } = Layout;
 class App extends React.Component {
   state = {
@@ -23,14 +24,7 @@ class App extends React.Component {
       <Layout className="bg-white">
         <Sidebar toggle={this.toggle} collapsed={this.state.collapsed} />
         <Layout className="site-layout">
-          {this.state.collapsed ? (
-            <i
-              onClick={this.toggle}
-              className="fas fa-chevron-right text-white bg-dark rounded p-1 m-2 w-fit"
-            ></i>
-          ) : (
-            ""
-          )}
+          {this.state.collapsed && <ToggleButton toggle={this.toggle} />}
           <Header />
           <Content
             className="site-layout-background"

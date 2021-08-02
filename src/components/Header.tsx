@@ -7,7 +7,7 @@ import plus from "../assets/plus.svg";
 import { Progress } from "antd";
 import TabsList from "./SmallComponents/TabsList";
 import SearchBar from "./SmallComponents/SearchBar";
-
+import HeaderDropDownItem from "./SmallComponents/HeaderDropDownItem";
 import { AudioOutlined } from "@ant-design/icons";
 function Header(props: any) {
   const suffix = (
@@ -38,27 +38,9 @@ function Header(props: any) {
               <span className="text-success ml-auto small">Upgrade</span>
             </div>
           </div>
-          <div className="col-md-12 mb-2">
-            <div className="d-flex aligh-items-center">
-              <div className="d-blue lh-1 font-weight-bold">Linked store</div>
-              <img src={flag} className="lh-1 mx-2" height="20" alt="" />
-              <img src={amazon} className="pt-1 lh-1" height="20" alt="" />
-            </div>
-          </div>
-          <div className="col-md-12 mb-2">
-            <div className="d-flex aligh-items-center">
-              <div className="d-blue lh-1 font-weight-bold">Linked store</div>
-              <img src={flag} className="lh-1 mx-2" height="20" alt="" />
-              <img src={amazon} className="pt-1 lh-1" height="20" alt="" />
-            </div>
-          </div>
-          <div className="col-md-12 mb-2">
-            <div className="d-flex aligh-items-center">
-              <div className="d-blue lh-1 font-weight-bold">Linked store</div>
-              <img src={flag} className="lh-1 mx-2" height="20" alt="" />
-              <img src={amazon} className="pt-1 lh-1" height="20" alt="" />
-            </div>
-          </div>
+          <HeaderDropDownItem />
+          <HeaderDropDownItem />
+
           <div className="col-md-12 mb-2 pl-2">
             <div className="bg-lighter br-15 py-1 w-fit d-flex align-items-center">
               <div className="d-blue lh-1 pl-1 font-weight-bold px-2 small">

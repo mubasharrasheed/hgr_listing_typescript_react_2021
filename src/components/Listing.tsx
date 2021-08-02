@@ -1,6 +1,7 @@
 import { Table } from "antd";
-import React, { Component } from "react";
+import React from "react";
 import img from "../assets/icon.png";
+import SmallTabs from "./SmallComponents/SmallTabs";
 const columns = [
   {
     title: "",
@@ -93,7 +94,6 @@ class Listing extends React.Component {
   };
 
   onSelectChange = (selectedRowKeys: any) => {
-    console.log("selectedRowKeys changed: ", selectedRowKeys);
     this.setState({ selectedRowKeys });
   };
 
@@ -147,13 +147,9 @@ class Listing extends React.Component {
             <div className="col-md-2 col-3 mr-3 d-blue">5 selected</div>
             <div className="col-md-5 col-8 mr-3 bg-lighter br-15 p-2">
               <div className="row d-blue">
-                <div className="col border-right border-primary">
-                  Edit 5 Listings
-                </div>
-                <div className="col border-right border-primary">
-                  Copy 5 Listings
-                </div>
-                <div className="col">Optimize 5 Listings</div>
+                <SmallTabs title={"Edit 5 Listings"} />
+                <SmallTabs title={"Copy 5 Listings"} />
+                <SmallTabs title={"Optimize 5 Listings"} last={true} />
               </div>
             </div>
           </div>

@@ -2,22 +2,14 @@ import React from "react";
 import ring_icon from "../assets/notification.svg";
 import flag from "../assets/flag-round-500.svg";
 import amazon from "../assets/amazon-icon-1.svg";
-import list_saerch from "../assets/list_search.jpg";
 import { Menu, Dropdown, Button, Space } from "antd";
 import plus from "../assets/plus.svg";
 import { Progress } from "antd";
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-} from "@ant-design/icons";
-import { Input } from "antd";
+import TabsList from "./SmallComponents/TabsList";
+import SearchBar from "./SmallComponents/SearchBar";
+
 import { AudioOutlined } from "@ant-design/icons";
 function Header(props: any) {
-  const onSearch = (value: any) => console.log(value);
-  const { Search } = Input;
   const suffix = (
     <AudioOutlined
       style={{
@@ -122,45 +114,9 @@ function Header(props: any) {
               </div>
             </div>
           </div>
-          <div className="row mx-auto py-3">
-            <div className="col-md-5 pl-lg-0 my-2 my-md-0 lh-1">
-              <Search
-                placeholder="Search..."
-                className="border-0 rounded bg-white h-100"
-                allowClear
-                onSearch={onSearch}
-                style={{ width: "90%" }}
-              />
-            </div>
-            <div className="col-md-3 pl-lg-0 my-2 my-md-0 lh-1">
-              <button className="btn px-lg-5 px-2 bg-purple text-white border-0 br-8 h-100">
-                <img src={list_saerch} className="invert" height="20" alt="" />{" "}
-                Advance Search
-              </button>
-            </div>
-          </div>
-          <div className="row mx-auto my-3 d-blue align-items-center bg-white br-8 p-2">
-            <div className="col pl-lg-0 my-2 my-md-0 lh-1">
-              <button className="btn px-lg-3 px-2 bg-purple text-white border-0 br-8 py-1">
-                Active listings
-              </button>
-            </div>
-            <div className="col pl-lg-0 my-2 my-md-0 lh-1">
-              <button className="btn px-lg-3 px-2 bg-trans text-dark border-0 br-8 py-1">
-                Pending listings
-              </button>
-            </div>
-            <div className="col pl-lg-0 my-2 my-md-0 lh-1">
-              <button className="btn px-lg-3 px-2 bg-trans text-dark border-0 br-8 py-1">
-                Terminated listings
-              </button>
-            </div>
-            <div className="col pl-lg-0 my-2 my-md-0 lh-1">
-              <button className="btn px-lg-3 px-2 bg-trans text-dark border-0 br-8 py-1">
-                Imported listings
-              </button>
-            </div>
-          </div>
+
+          <SearchBar />
+          <TabsList />
         </div>
       </div>
     </div>

@@ -3,10 +3,11 @@ interface Props {
   title: string;
   active: number;
   index: number;
-  onChangeTab: () => number;
+  onChangeTab: (number: number) => void;
 }
 export default function TabButton(props: Props) {
   const { title, active, onChangeTab, index } = props;
+  const isActive = active == index;
   return (
     <div className="col pl-lg-0 my-2 my-md-0 lh-1">
       <button

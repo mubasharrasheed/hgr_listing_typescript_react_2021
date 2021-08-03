@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import TabButton from "./TabButton";
 export default function TabsList() {
   const [active, setActive] = useState(1);
-  const onChangeTab = (value: number) => {
-    setActive(value);
+  const onChangeTab = (number: number) => {
+    setActive(number);
   };
   return (
     <div className="row mx-auto my-3 d-blue align-items-center bg-white br-8 p-2">

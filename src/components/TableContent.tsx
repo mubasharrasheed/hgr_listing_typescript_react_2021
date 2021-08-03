@@ -8,7 +8,7 @@ const data: any = [];
 for (let i = 0; i < 46; i++) {
   data.push({
     key: i,
-    img: <img src={img} height={30} />,
+    img: <img src={img} height={30} alt="" />,
     item: 1234546789,
     src: "Amazon",
     title: "title the of product abc efd xyz",

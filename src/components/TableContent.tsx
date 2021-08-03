@@ -96,8 +96,8 @@ class TableContent extends React.Component {
             <div className="col-md-2 col-3 mr-3 d-blue">5 selected</div>
             <div className="col-md-5 col-8 mr-3 bg-lighter br-15 p-2">
               <div className="row d-blue">
-                <SmallTabs title={"Edit 5 Listings"} />
-                <SmallTabs title={"Copy 5 Listings"} />
+                <SmallTabs title={"Edit 5 Listings"}  last={false} />
+                <SmallTabs title={"Copy 5 Listings"}  last={false} />
                 <SmallTabs title={"Optimize 5 Listings"} last={true} />
               </div>
             </div>

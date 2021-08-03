@@ -1,11 +1,11 @@
-import { Menu, Button} from "antd";
+import { Menu, Button } from "antd";
 import { Progress } from "antd";
 import HeaderDropDownItem from "../SmallComponents/HeaderDropDownItem";
 import plus from "../../assets/plus.svg";
 
 export default function DropDownMenu() {
   return (
-    <Menu>
+    <Menu className="shade">
       <div className="drop-down">
         <div className="row mx-auto my-2 align-items-center">
           <div className="col-12">

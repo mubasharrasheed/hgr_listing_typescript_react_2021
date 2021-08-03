@@ -81,6 +81,19 @@ button {
 .w-fit {
   width: fit-content;
 }
+.shade {
+  box-shadow: 1px 1px 10px 4px #00000036 !important;
+}
+.ant-table-wrapper {
+  overflow: auto;
+}
+.w-fit {
+  width: fit-content;
+}
+table {
+  table-layout: auto;
+  overflow-x: scroll;
+}
 .ant-table-thead > tr > th {
   color: #262e80 !important;
   font-weight: bold !important;
@@ -104,4 +117,15 @@ button {
 }
 .drop-down {
   width: 23vw;
+}
+@media (max-width: 600px) {
+  .drop-down {
+    width: 60vw;
+  }
+  .border-right {
+    border: none !important;
+  }
+  .ant-layout-content .site-layout-background {
+    padding: 10px;
+  }
 }

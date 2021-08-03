@@ -10,15 +10,17 @@ export default function Notifications(props: any) {
     <div className="row mx-auto pt-4">
       <h5 className="mb-0 d-blue font-weight-bold">{props.title}</h5>
       <div className="col-lg-6 col-md-8 ml-auto">
-        <div className="d-flex align-items-center  bg-white rounded p-lg-2 p-1 w-fit ml-auto">
+        <div className="d-flex align-items-center  bg-white rounded p-lg-2 p-1 w-fit ml-0 ml-md-auto mt-md-0 mt-2">
           <img src={ring_icon} height="20" className="" alt="" />
           <div className="ml-2 mr-3 d-blue lh-1">
             {" "}
-            <span className="font-weight-bold">2</span> notifications{" "}
+            <span className="font-weight-bold">2</span>
+            <span className="d-none d-md-inline pl-1">notifications </span>
           </div>
           <div className="d-blue mr-3 lh-1">
             <i className="fas fa-circle yellow"></i>
-            <span className="font-weight-bold"> 12</span> Tokens{" "}
+            <span className="font-weight-bold"> 12</span>
+            <span className="d-none d-md-inline pl-1">Tokens </span>
           </div>
           <div className="d-blue mr-3 lh-1 font-weight-bold">Linked store</div>
           <img src={flag} className="mx-2 lh-1" height="20" alt="" />

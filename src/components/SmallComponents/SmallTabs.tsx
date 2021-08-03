@@ -5,10 +5,6 @@ interface Props {
 }
 export default function SmallTabs(props: Props) {
   const { title, last } = props;
-  const cssClass = last ? "col" : "col border-right border-primary";
-  return (
-    <div className={cssClass}>
-      {title}
-    </div>
-  );
+  const cssClass = last ? "col-md" : "col-md border-right border-primary";
+  return <div className={cssClass}>{title}</div>;
 }

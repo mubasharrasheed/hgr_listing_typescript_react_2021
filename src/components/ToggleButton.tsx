@@ -6,7 +6,7 @@ export default function ToggleButton(props: Props) {
   const { toggle } = props;
   return (
     <i
-      onClick={props.toggle}
+      onClick={toggle}
       className="fas fa-chevron-right text-white bg-dark rounded p-1 m-2 w-fit"
     ></i>
   );

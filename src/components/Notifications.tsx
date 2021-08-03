@@ -2,9 +2,8 @@ import React from "react";
 import ring_icon from "../assets/notification.svg";
 import flag from "../assets/flag-round-500.svg";
 import amazon from "../assets/amazon-icon-1.svg";
-import { Menu, Dropdown, Button, Space } from "antd";
+import { Dropdown, Button, Space } from "antd";
 import DropDownMenu from "./SmallComponents/DropDownMenu";
-import { AudioOutlined } from "@ant-design/icons";
 
 export default function Notifications(props: any) {
   return (

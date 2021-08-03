@@ -1,5 +1,3 @@
-import React from "react";
-import ring_icon from "../../assets/notification.svg";
 import flag from "../../assets/flag-round-500.svg";
 import amazon from "../../assets/amazon-icon-1.svg";
 

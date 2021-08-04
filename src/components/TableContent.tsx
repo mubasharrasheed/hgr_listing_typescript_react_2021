@@ -9,7 +9,7 @@ for (let i = 0; i < 46; i++) {
   data.push({
     key: i,
     img: <img src={img} height={30} alt="" />,
-    item: 1234546789,
+    // item: 1234546789,
     src: "Amazon",
     title: "title the of product abc efd xyz",
     sell: 30.4,
@@ -21,19 +21,20 @@ for (let i = 0; i < 46; i++) {
         <i className="d-green far fa-check-circle"></i> 2
       </div>
     ),
-    created: (
-      <div className="d-flex align-items-center">
-        <div className="d-blue">13/07/2021 12:56</div>
-        <div className="lh-1">
-          {" "}
-          <button className="fas fa-edit btn border-0 bg-trans mr-2 ml-3 p-0"></button>
-        </div>
-        <div className="lh-1">
-          {" "}
-          <button className="fas fa-ellipsis-v btn border-0 bg-trans mr-2 ml-3 p-0"></button>
-        </div>
-      </div>
-    ),
+    // ,
+    // created: (
+    //   <div className="d-flex align-items-center">
+    //     <div className="d-blue">13/07/2021 12:56</div>
+    //     <div className="lh-1">
+    //       {" "}
+    //       <button className="fas fa-edit btn border-0 bg-trans mr-2 ml-3 p-0"></button>
+    //     </div>
+    //     <div className="lh-1">
+    //       {" "}
+    //       <button className="fas fa-ellipsis-v btn border-0 bg-trans mr-2 ml-3 p-0"></button>
+    //     </div>
+    //   </div>
+    // ),
   });
 }
 

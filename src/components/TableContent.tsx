@@ -11,7 +11,12 @@ for (let i = 0; i < 46; i++) {
     img: <img src={img} height={30} alt="" />,
     // item: 1234546789,
     src: "Amazon",
-    title: "title the of product abc efd xyz",
+    title: (
+      <div className="">
+        {" "}
+        <u>the title of product abc efd xyz</u>{" "}
+      </div>
+    ),
     sell: 30.4,
     cost: 34.44,
     profile: 309,

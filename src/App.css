@@ -115,6 +115,9 @@ table {
 .ant-table-tbody > tr > td:nth-child(10) {
   color: #262e80 !important;
 }
+/* .ant-table-tbody > tr > td:nth-child(4) {
+  text-decoration: underline;
+} */
 .drop-down {
   width: 23vw;
 }

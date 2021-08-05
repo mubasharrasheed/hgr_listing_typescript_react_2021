@@ -9,8 +9,8 @@ export default function Notifications(props: any) {
   return (
     <div className="row mx-auto pt-4">
       <h5 className="mb-0 d-blue font-weight-bold">{props.title}</h5>
-      <div className="col-lg-6 col-md-8 ml-auto">
-        <div className="d-flex align-items-center  bg-white rounded p-lg-2 p-1 w-fit ml-0 ml-md-auto mt-md-0 mt-2">
+      <div className="col-lg-5 col-md-8 ml-auto px-0 bg-white rounded mt-2 mt-lg-0">
+        <div className="d-flex align-items-center p-lg-2 p-1 w-100">
           <img src={ring_icon} height="20" className="" alt="" />
           <div className="ml-2 mr-3 d-blue lh-1">
             {" "}

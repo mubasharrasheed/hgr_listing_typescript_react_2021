@@ -14,7 +14,7 @@ import SidebarMb from "./components/SidebarMb";
 
 class App extends React.Component {
   state = {
-    collapsed: false,
+    collapsed: true,
   };
 
   toggle = () => {
@@ -26,14 +26,17 @@ class App extends React.Component {
   render() {
     return (
       <Layout className="bg-white">
-        <div className="d-none d-lg-block">
+        <div
+          onMouseEnter={() => this.setState({ collapsed: false })}
+          className="d-none d-lg-block"
+        >
           <Sidebar toggle={this.toggle} collapsed={this.state.collapsed} />
         </div>
         <Layout className="site-layout">
           <div className="d-block d-lg-none">
             <SidebarMb />
           </div>
-          {this.state.collapsed && <ToggleButton toggle={this.toggle} />}
+
           <HeaderLayout>
             <Notifications title={"Listings"} />
             <SearchBar />

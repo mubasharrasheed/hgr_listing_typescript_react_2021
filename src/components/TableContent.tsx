@@ -12,9 +12,12 @@ for (let i = 0; i < 46; i++) {
     // item: 1234546789,
     src: "Amazon",
     title: (
-      <div className="">
+      <div className="w-title">
         {" "}
-        <u>the title of product abc efd xyz</u>{" "}
+        <u>
+          Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesua
+          ff
+        </u>{" "}
       </div>
     ),
     sell: 30.4,
@@ -98,8 +101,7 @@ class TableContent extends React.Component {
     return (
       <React.Fragment>
         <div className="bg-white rounded">
-          <div className="row mx-auto p-3 align-items-center">
-            <div className="col-lg-2 col-md-3 mr-3 d-blue">5 selected</div>
+          <div className="row mx-auto p-1 align-items-center">
             <div className="col-lg-5 col-md-8 mr-3 bg-lighter br-15 p-2">
               <div className="row d-blue">
                 <SmallTabs title={"Edit 5 Listings"} last={false} />

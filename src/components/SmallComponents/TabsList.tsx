@@ -24,17 +24,11 @@ export default function TabsList() {
         onChangeTab={() => onChangeTab(3)}
         index={3}
         active={active}
-        title={"Active listings"}
+        title={"Terminated listings"}
       />
       <TabButton
         onChangeTab={() => onChangeTab(4)}
         index={4}
-        active={active}
-        title={"Terminated listings"}
-      />
-      <TabButton
-        onChangeTab={() => onChangeTab(5)}
-        index={5}
         active={active}
         title={"Imported listings"}
       />

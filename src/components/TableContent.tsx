@@ -3,8 +3,10 @@ import React from "react";
 import img from "../assets/icon.png";
 import SmallTabs from "./SmallComponents/SmallTabs";
 import { columns } from "../data";
-
 const data: any = [];
+const windowwidth = window.innerWidth;
+
+console.log(windowwidth);
 for (let i = 0; i < 46; i++) {
   data.push({
     key: i,
@@ -29,20 +31,6 @@ for (let i = 0; i < 46; i++) {
         <i className="d-green far fa-check-circle"></i> 2
       </div>
     ),
-    // ,
-    // created: (
-    //   <div className="d-flex align-items-center">
-    //     <div className="d-blue">13/07/2021 12:56</div>
-    //     <div className="lh-1">
-    //       {" "}
-    //       <button className="fas fa-edit btn border-0 bg-trans mr-2 ml-3 p-0"></button>
-    //     </div>
-    //     <div className="lh-1">
-    //       {" "}
-    //       <button className="fas fa-ellipsis-v btn border-0 bg-trans mr-2 ml-3 p-0"></button>
-    //     </div>
-    //   </div>
-    // ),
   });
 }
 
@@ -53,8 +41,9 @@ class TableContent extends React.Component {
 
   onSelectChange = (selectedRowKeys: any) => {
     this.setState({ selectedRowKeys });
+    console.log(selectedRowKeys.length);
+    const selected = selectedRowKeys.length;
   };
-
   render() {
     const { selectedRowKeys } = this.state;
     const rowSelection = {
@@ -102,13 +91,45 @@ class TableContent extends React.Component {
       <React.Fragment>
         <div className="bg-white rounded">
           <div className="row mx-auto p-1 align-items-center">
-            <div className="col-lg-5 col-md-8 mr-3 bg-lighter br-15 p-2">
-              <div className="row d-blue">
-                <SmallTabs title={"Edit 5 Listings"} last={false} />
-                <SmallTabs title={"Copy 5 Listings"} last={false} />
-                <SmallTabs title={"Optimize 5 Listings"} last={true} />
+            {selectedRowKeys.length ? (
+              <div className="col-lg-6 col-md-8 mr-3 bg-lighter br-15 p-2">
+                <div className="row d-blue">
+                  {selectedRowKeys.length ? (
+                    <SmallTabs
+                      title={`Edit ${selectedRowKeys.length} ${
+                        windowwidth < 900 ? "" : "Listings"
+                      } `}
+                      last={false}
+                    />
+                  ) : (
+                    ""
+                  )}
+                  {selectedRowKeys.length ? (
+                    <SmallTabs
+                      title={`Copy ${selectedRowKeys.length} ${
+                        windowwidth < 900 ? "" : "Listings"
+                      } `}
+                      border={true}
+                      last={false}
+                    />
+                  ) : (
+                    ""
+                  )}
+                  {selectedRowKeys.length ? (
+                    <SmallTabs
+                      title={`Optimize ${selectedRowKeys.length} ${
+                        windowwidth < 900 ? "" : "Listings"
+                      } `}
+                      last={false}
+                    />
+                  ) : (
+                    ""
+                  )}
+                </div>
               </div>
-            </div>
+            ) : (
+              ""
+            )}
           </div>
           <Table
             rowSelection={rowSelection}

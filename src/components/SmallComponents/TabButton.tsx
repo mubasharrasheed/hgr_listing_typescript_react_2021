@@ -9,7 +9,7 @@ export default function TabButton(props: Props) {
   const { title, active, onChangeTab, index } = props;
   const isActive = active == index;
   return (
-    <div className="col pl-lg-0 my-2 my-md-0 lh-1">
+    <div className="col pl-lg-0 my-2 my-md-0 lh-1 px-1">
       <button
         onClick={onChangeTab}
         className={`btn px-lg-3 px-2 ${

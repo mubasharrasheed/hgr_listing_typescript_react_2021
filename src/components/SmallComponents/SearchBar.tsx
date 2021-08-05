@@ -15,8 +15,8 @@ const suffix = (
 const onSearch = () => console.log();
 export default function SearchBar() {
   return (
-    <div className="row mx-auto py-3">
-      <div className="col-md-5 pl-lg-0 my-2 my-md-0 lh-1 px-0">
+    <div className="row mx-auto py-lg-3">
+      <div className="col-md-5 pl-lg-0 lh-1 px-0">
         <div className="input-group input-group-sm border py-1 rounded pr-1 bg-white">
           <input
             type="text"

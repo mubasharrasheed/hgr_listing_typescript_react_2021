@@ -39,8 +39,13 @@ class App extends React.Component {
 
           <HeaderLayout>
             <Notifications title={"Listings"} />
-            <SearchBar />
+            <div className="d-lg-block d-none">
+              <SearchBar />
+            </div>
             <TabsList />
+            <div className="my-2 d-block d-lg-none">
+              <SearchBar />
+            </div>
           </HeaderLayout>
           <ContentLayout>
             <TableContent />

@@ -66,8 +66,8 @@ body {
 .lh-1 {
   line-height: 1 !important;
 }
-.ant-layout-content .site-layout-background {
-  padding: 1.6%;
+.ant-layout-content {
+  padding: 1.6% !important;
 }
 .yellow {
   color: yellow;
@@ -116,6 +116,7 @@ table {
   text-overflow: ellipsis;
   max-width: 462px;
 }
+
 .ant-table-tbody > tr > td:nth-child(7) {
   color: rgb(101, 173, 101) !important;
 }
@@ -140,7 +141,7 @@ table {
   .border-right {
     border: none !important;
   }
-  .ant-layout-content .site-layout-background {
-    padding: 10px;
+  .ant-layout-content {
+    padding: 10px !important;
   }
 }

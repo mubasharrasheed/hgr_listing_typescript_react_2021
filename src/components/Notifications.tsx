@@ -8,7 +8,9 @@ import DropDownMenu from "./SmallComponents/DropDownMenu";
 export default function Notifications(props: any) {
   return (
     <div className="row mx-auto pt-4">
-      <h5 className="mb-0 d-blue font-weight-bold">{props.title}</h5>
+      <h5 className="mb-0 d-blue font-weight-bold d-none d-lg-block">
+        {props.title}
+      </h5>
       <div className="col-lg-5 col-md-8 ml-auto px-0 bg-white rounded mt-2 mt-lg-0">
         <div className="d-flex align-items-center p-lg-2 p-1 w-100">
           <img src={ring_icon} height="20" className="" alt="" />
@@ -38,6 +40,9 @@ export default function Notifications(props: any) {
           </div>
         </div>
       </div>
+      <h5 className="mb-0 d-blue font-weight-bold d-lg-none mt-3 d-block">
+        {props.title}
+      </h5>
     </div>
   );
 }

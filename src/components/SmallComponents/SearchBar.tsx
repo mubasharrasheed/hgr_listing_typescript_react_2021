@@ -15,7 +15,7 @@ const suffix = (
 const onSearch = () => console.log();
 export default function SearchBar() {
   return (
-    <div className="row mx-auto py-lg-3">
+    <div className="row mx-auto py-lg-3 mt-md-3 mt-lg-1">
       <div className="col-md-5 pl-lg-0 lh-1 px-0">
         <div className="input-group input-group-sm border py-1 rounded pr-1 bg-white">
           <input
@@ -41,7 +41,7 @@ export default function SearchBar() {
           style={{ width: "90%" }}
         /> */}
       </div>
-      <div className="col-md-3 my-md-0 lh-1 pl-2 d-lg-block d-none">
+      <div className="col-md-3 my-md-0 lh-1 pl-2 d-md-block d-none">
         <button className="btn px-lg-5 px-2 bg-purple text-white border-0 br-8 h-100">
           <img src={list_saerch} className="invert" height="20" alt="" />{" "}
           Advance Search

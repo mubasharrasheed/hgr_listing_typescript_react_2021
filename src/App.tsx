@@ -15,6 +15,7 @@ import SidebarMb from "./components/SidebarMb";
 class App extends React.Component {
   state = {
     collapsed: true,
+    staticvalue: false,
   };
 
   toggle = () => {
@@ -23,14 +24,36 @@ class App extends React.Component {
     });
   };
 
+  togglestatic = () => {
+    this.setState({
+      staticvalue: !this.state.staticvalue,
+    });
+  };
+
   render() {
     return (
       <Layout className="bg-white">
         <div
-          onMouseEnter={() => this.setState({ collapsed: false })}
+          onMouseEnter={() => {
+            if (!this.state.staticvalue) {
+              this.setState({ collapsed: false });
+              return;
+            }
+          }}
+          onMouseLeave={() => {
+            if (!this.state.staticvalue) {
+              this.setState({ collapsed: true });
+              return;
+            }
+          }}
           className="d-none d-lg-block"
         >
-          <Sidebar toggle={this.toggle} collapsed={this.state.collapsed} />
+          <Sidebar
+            staticvalue={this.state.staticvalue}
+            togglestatic={this.togglestatic}
+            toggle={this.toggle}
+            collapsed={this.state.collapsed}
+          />
         </div>
         <Layout className="site-layout">
           <div className="d-block d-lg-none">

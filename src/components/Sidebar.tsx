@@ -7,14 +7,17 @@ import settings from "../assets/settings.svg";
 import services from "../assets/services.svg";
 import help from "../assets/help.svg";
 import { Layout, Menu } from "antd";
+import pin_icon from "../assets/pin.svg";
 const { Sider } = Layout;
 interface Props {
   collapsed: boolean;
-  toggle: () => void
+  toggle: () => void;
+  staticvalue: boolean;
+  togglestatic: () => void;
 }
 
 export default function Sidebar(props: Props) {
-  const { collapsed, toggle } = props;
+  const { collapsed, toggle, staticvalue, togglestatic } = props;
   return (
     <Sider theme="light" trigger={null} collapsible collapsed={collapsed}>
       <div className="logo" />
@@ -26,10 +29,23 @@ export default function Sidebar(props: Props) {
           {collapsed ? (
             ""
           ) : (
-            <i
-              onClick={toggle}
-              className="fas fa-chevron-left text-dark bg-light rounded p-1 ml-auto float-right m-2"
-            ></i>
+            <>
+              <div className="ml-auto float-right m-2">
+                {staticvalue ? (
+                  <i
+                    onClick={togglestatic}
+                    className="fas fa-chevron-left text-dark bg-light rounded p-1"
+                  ></i>
+                ) : (
+                  <img
+                    onClick={togglestatic}
+                    src={pin_icon}
+                    height={20}
+                    alt=""
+                  />
+                )}
+              </div>
+            </>
           )}
         </div>
         <Menu.Item key="1" icon={<img src={dashboard} height={20} alt="" />}>
@@ -56,4 +72,7 @@ export default function Sidebar(props: Props) {
       </Menu>
     </Sider>
   );
+}
+function setState(arg0: { collapsed: boolean }): void {
+  throw new Error("Function not implemented.");
 }

@@ -19,13 +19,26 @@ interface Props {
 export default function Sidebar(props: Props) {
   const { collapsed, toggle, staticvalue, togglestatic } = props;
   return (
-    <Sider theme="light" trigger={null} collapsible collapsed={collapsed}>
+    <Sider
+      theme="light"
+      className="h-100 border-right border"
+      trigger={null}
+      collapsible
+      collapsed={collapsed}
+    >
       <div className="logo" />
       <Menu theme="light" mode="inline" defaultSelectedKeys={["4"]}>
         <Menu.Item key="0" icon={<img src={logo} height={30} alt="" />}>
           <span className="font-weight-bold d-blue">HGR</span>
         </Menu.Item>
-        <div className="text-white">
+        <div
+          className="text-white position-absolute"
+          style={{
+            top: "0%",
+            right: "3%",
+            zIndex: 999999,
+          }}
+        >
           {collapsed ? (
             ""
           ) : (
@@ -34,15 +47,19 @@ export default function Sidebar(props: Props) {
                 {staticvalue ? (
                   <i
                     onClick={togglestatic}
-                    className="fas fa-chevron-left text-dark bg-light rounded p-1"
+                    className="fas fa-chevron-left text-dark bg-light rounded p-1 mt-1"
                   ></i>
                 ) : (
-                  <img
-                    onClick={togglestatic}
-                    src={pin_icon}
-                    height={20}
-                    alt=""
-                  />
+                  <button className="btn border-0 btn-light p-1">
+                    <img
+                      onClick={togglestatic}
+                      className=""
+                      src={pin_icon}
+                      height={20}
+                      width={20}
+                      alt=""
+                    />
+                  </button>
                 )}
               </div>
             </>

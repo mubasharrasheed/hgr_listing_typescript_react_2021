@@ -10,6 +10,12 @@ body {
 .invert {
   filter: invert(1);
 }
+.w-sidebar-toggle {
+  width: 80px;
+  z-index: 1;
+  /* height: 100vh; */
+  overflow-x: visible;
+}
 .br-8 {
   border-radius: 8px !important;
   -webkit-border-radius: 8px !important;

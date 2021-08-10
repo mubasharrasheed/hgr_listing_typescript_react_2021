@@ -32,7 +32,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Layout className="bg-white">
+      <Layout className="bg-white h-100">
         <div
           onMouseEnter={() => {
             if (!this.state.staticvalue) {
@@ -46,7 +46,9 @@ class App extends React.Component {
               return;
             }
           }}
-          className="d-none d-lg-block"
+          className={`d-none d-lg-block ${
+            !this.state.staticvalue ? "w-sidebar-toggle" : ""
+          }`}
         >
           <Sidebar
             staticvalue={this.state.staticvalue}

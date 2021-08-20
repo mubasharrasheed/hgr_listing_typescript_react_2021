@@ -7,6 +7,28 @@ body {
 .bg-lighter {
   background-color: #f0f2f5;
 }
+
+label {
+  width: 100%;
+}
+
+.card-input-element {
+  display: none;
+}
+
+.card-input {
+  margin: 10px;
+  padding: 15px 13px;
+}
+
+.card-input:hover {
+  cursor: pointer;
+}
+
+.card-input-element:checked + .card-input {
+  box-shadow: 0 0 1px 1px #39418b;
+}
+
 .invert {
   filter: invert(1);
 }

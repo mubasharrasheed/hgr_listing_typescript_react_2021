@@ -12,6 +12,7 @@ import SearchBar from "./components/SmallComponents/SearchBar";
 import Notifications from "./components/Notifications";
 import SidebarMb from "./components/SidebarMb";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import ChannelCreate from "./components/ChannelCreate";
 class App extends React.Component {
   state = {
     collapsed: true,
@@ -66,22 +67,44 @@ class App extends React.Component {
               <SidebarMb />
             </div>
 
-            <HeaderLayout>
-              <Notifications title={"Listings"} />
-              <div className="d-md-block d-none">
-                <SearchBar />
-              </div>
-              <TabsList />
-              <div className="my-2 d-block d-md-none">
-                <SearchBar />
-              </div>
-            </HeaderLayout>
             <Switch>
-              <Route path="/">
-                <ContentLayout>
-                  <TableContent />
-                </ContentLayout>
-              </Route>
+              <Route
+                path="/home"
+                component={() => {
+                  return (
+                    <>
+                      <HeaderLayout>
+                        <Notifications title={"Listings"} />
+                        <div className="d-md-block d-none">
+                          <SearchBar />
+                        </div>
+                        <TabsList />
+                        <div className="my-2 d-block d-md-none">
+                          <SearchBar />
+                        </div>
+                      </HeaderLayout>
+                      <ContentLayout>
+                        <TableContent />
+                      </ContentLayout>
+                    </>
+                  );
+                }}
+              />
+              <Route
+                path="/newchannel"
+                component={() => {
+                  return (
+                    <>
+                      <HeaderLayout>
+                        <Notifications title={""} />
+                      </HeaderLayout>
+                      <ContentLayout>
+                        <ChannelCreate />
+                      </ContentLayout>
+                    </>
+                  );
+                }}
+              />
             </Switch>
           </Layout>
         </Layout>

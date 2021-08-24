@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import PlatForm from "./chanel/PlatForm";
+import StoreLocation from "./chanel/StoreLocation";
 
 class ChannelCreate extends Component {
   state = {
     step: 1,
     platform: "",
+    storeLocation: "",
   };
   prevStep = () => {
     const { step } = this.state;
@@ -14,13 +16,14 @@ class ChannelCreate extends Component {
     const { step } = this.state;
     this.setState({ step: step + 1 });
   };
-  handleChange = (input) => (e) => {
+  handleChange = (input: any) => (e: any) => {
     this.setState({ [input]: e.target.value });
   };
   render() {
     const { step } = this.state;
     const { platform } = this.state;
-    const values = { platform };
+    const { storeLocation } = this.state;
+    const values = { platform, storeLocation };
 
     switch (step) {
       case 1:
@@ -31,10 +34,14 @@ class ChannelCreate extends Component {
             values={values}
           />
         );
-      // case 2:
-      //   return (
-      //     <PersonalDetails />
-      //   )
+      case 2:
+        return (
+          <StoreLocation
+            nextStep={this.nextStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        );
       // case 3:
       //   return (
       //     <Confirmation />

@@ -11,7 +11,13 @@ import TabsList from "./components/SmallComponents/TabsList";
 import SearchBar from "./components/SmallComponents/SearchBar";
 import Notifications from "./components/Notifications";
 import SidebarMb from "./components/SidebarMb";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 import ChannelCreate from "./components/ChannelCreate";
 class App extends React.Component {
   state = {
@@ -68,6 +74,9 @@ class App extends React.Component {
             </div>
 
             <Switch>
+              <Route exact path="/">
+                <Redirect to="/home" />
+              </Route>
               <Route
                 path="/home"
                 component={() => {

@@ -112,6 +112,12 @@ button {
 .w-fit {
   width: fit-content;
 }
+.shade-Channel {
+  box-shadow: 1px 1px 10px 4px #00000014 !important;
+}
+.shade-card {
+  box-shadow: 1px 1px 3px 1px #0000000d !important;
+}
 .shade {
   box-shadow: 1px 1px 10px 4px #00000036 !important;
 }

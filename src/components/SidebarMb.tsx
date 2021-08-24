@@ -17,7 +17,7 @@ function SidebarMb(props: any) {
               <Nav.Link href="#home">Dashboard</Nav.Link>
               <Nav.Link href="#link">Catalog</Nav.Link>
               <Nav.Link href="#link">List now</Nav.Link>
-              <Nav.Link href="#link">Listings</Nav.Link>
+              <Nav.Link href="/home">Listings</Nav.Link>
               <Nav.Link href="#link">Settings</Nav.Link>
               <Nav.Link href="#link">Services</Nav.Link>
               <Nav.Link href="#link">Help</Nav.Link>

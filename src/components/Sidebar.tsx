@@ -8,6 +8,7 @@ import services from "../assets/services.svg";
 import help from "../assets/help.svg";
 import { Layout, Menu } from "antd";
 import pin_icon from "../assets/pin.svg";
+import { useHistory } from "react-router-dom";
 const { Sider } = Layout;
 interface Props {
   collapsed: boolean;
@@ -17,6 +18,12 @@ interface Props {
 }
 
 export default function Sidebar(props: Props) {
+  const history = useHistory();
+
+  const routeChange = () => {
+    let path = `newPath`;
+    history.push("/home");
+  };
   const { collapsed, toggle, staticvalue, togglestatic } = props;
   return (
     <Sider
@@ -74,8 +81,17 @@ export default function Sidebar(props: Props) {
         <Menu.Item key="3" icon={<img src={listnow} height={20} alt="" />}>
           List now
         </Menu.Item>
-        <Menu.Item key="4" icon={<i className="fas fa-list d-blue"></i>}>
-          Listings
+
+        <Menu.Item
+          key="4"
+          icon={<i onClick={routeChange} className="fas fa-list d-blue"></i>}
+        >
+          <button
+            className="bg-trans p-0 border-0"
+            onClick={() => history.push("/home")}
+          >
+            Listings
+          </button>
         </Menu.Item>
         <Menu.Item key="5" icon={<img src={settings} height={20} alt="" />}>
           Settings <i className="fas fa-sort-down text-dark ml-2"></i>

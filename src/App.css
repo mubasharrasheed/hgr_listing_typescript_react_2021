@@ -29,6 +29,10 @@ label {
   box-shadow: 0 0 1px 1px #39418b;
 }
 
+.card-input-flag:checked + .card-input {
+  box-shadow: 0 0 1px 4px #39418b85;
+}
+
 .invert {
   filter: invert(1);
 }
@@ -64,8 +68,14 @@ label {
 .bg-d-blue {
   background-color: #262e80;
 }
+button:focus {
+  outline: none !important;
+}
 .purple {
   color: #9694ff;
+}
+.d-purple {
+  color: #6a74de;
 }
 .bg-purple {
   background-color: #9694ff;
@@ -112,11 +122,14 @@ button {
 .w-fit {
   width: fit-content;
 }
+.btn-disbaled {
+  opacity: 0.3;
+}
 .shade-Channel {
   box-shadow: 1px 1px 10px 4px #00000014 !important;
 }
 .shade-card {
-  box-shadow: 1px 1px 3px 1px #0000000d !important;
+  box-shadow: 1px 1px 3px 1px #0000000d;
 }
 .shade {
   box-shadow: 1px 1px 10px 4px #00000036 !important;

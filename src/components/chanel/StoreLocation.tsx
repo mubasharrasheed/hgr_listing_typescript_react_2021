@@ -27,6 +27,7 @@ function StoreLocation({
     e.preventDefault();
     prevStep();
   };
+  console.log(step, "storage");
   return (
     <Container component="main" maxWidth="lg">
       <div>

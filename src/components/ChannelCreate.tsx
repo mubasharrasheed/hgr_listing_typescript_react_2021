@@ -52,6 +52,7 @@ class ChannelCreate extends Component {
             prevStep={this.prevStep}
             handleChange={this.handleChange}
             values={values}
+            step={step}
           />
         );
       case 3:
@@ -61,6 +62,7 @@ class ChannelCreate extends Component {
             prevStep={this.prevStep}
             handleChange={this.handleChange}
             values={values}
+            step={step}
           />
         );
       case 4:
@@ -70,6 +72,7 @@ class ChannelCreate extends Component {
             prevStep={this.prevStep}
             handleChange={this.handleChange}
             values={values}
+            step={step}
           />
         );
       case 5:
@@ -79,6 +82,7 @@ class ChannelCreate extends Component {
             prevStep={this.prevStep}
             handleChange={this.handleChange}
             values={values}
+            step={step}
           />
         );
       case 6:
@@ -88,6 +92,7 @@ class ChannelCreate extends Component {
             prevStep={this.prevStep}
             handleChange={this.handleChange}
             values={values}
+            step={step}
           />
         );
       // never forget the default case, otherwise VS code would be mad!

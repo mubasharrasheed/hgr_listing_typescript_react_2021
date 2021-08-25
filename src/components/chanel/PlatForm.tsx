@@ -32,7 +32,9 @@ function PlatForm({ nextStep, handleChange, values, step }: any) {
                     <input
                       type="radio"
                       name="product"
+                      value={"platform"}
                       className="card-input-element"
+                      onChange={(e) => handleChange("platform", e)}
                     />
                     <div className="panel panel-default card-input shade-card br-8 h-100">
                       <div className="mt-2 mb-md-5 mb-2">
@@ -51,7 +53,9 @@ function PlatForm({ nextStep, handleChange, values, step }: any) {
                     <input
                       type="radio"
                       name="product"
+                      value={"platform"}
                       className="card-input-element"
+                      onChange={(e) => handleChange("platform", e)}
                     />
                     <div className="panel panel-default card-input shade-card br-8 h-100">
                       <div className="mt-2 mb-md-5 mb-2">
@@ -70,7 +74,9 @@ function PlatForm({ nextStep, handleChange, values, step }: any) {
                     <input
                       type="radio"
                       name="product"
+                      value={"platform"}
                       className="card-input-element"
+                      onChange={(e) => handleChange("platform", e)}
                     />
                     <div className="panel panel-default card-input shade-card br-8">
                       <div className="mt-2 mb-md-4 mb-5">
@@ -82,9 +88,13 @@ function PlatForm({ nextStep, handleChange, values, step }: any) {
                         number of visitors. Optimise your titles and item
                         information to increase sells.
                         <div>
-                          <i className="font-weight-bold">
-                            *you need to be self-employed to sell on Amazon.
-                          </i>
+                          {values.platform ? (
+                            <i className="font-weight-bold">
+                              *you need to be self-employed to sell on Amazon.
+                            </i>
+                          ) : (
+                            ""
+                          )}
                         </div>
                       </div>
                     </div>

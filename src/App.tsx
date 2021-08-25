@@ -39,7 +39,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
+      <React.Fragment>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
 
@@ -72,7 +72,7 @@ class App extends React.Component {
             <div className="d-block d-lg-none">
               <SidebarMb />
             </div>
-
+<Router>
             <Switch>
               <Route exact path="/">
                 <Redirect to="/home" />
@@ -115,9 +115,10 @@ class App extends React.Component {
                 }}
               />
             </Switch>
+            </Router>
           </Layout>
         </Layout>
-      </Router>
+      </React.Fragment>
     );
   }
 }

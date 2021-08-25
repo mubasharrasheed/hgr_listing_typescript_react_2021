@@ -10,6 +10,7 @@ import uk_flag from "../../assets/channel/flags/UK.png";
 import us_flag from "../../assets/channel/flags/US.png";
 import back_icon from "../../assets/channel/flags/back.png";
 import ProgressBar from "./ProgressBar";
+import MbProgressBar from "./MbProgressBar";
 function Account({
   nextStep,
   handleChange,
@@ -31,7 +32,10 @@ function Account({
       <div>
         <form>
           <div className="row mx-auto">
-            <div className="col-lg-8 shade-Channel bg-white br-8">
+            <div className="col-12 my-2 d-block d-xl-none px-0">
+              <MbProgressBar step={step} />
+            </div>
+            <div className="col-xl-8 shade-Channel bg-white br-8">
               <button
                 onClick={Previous}
                 type="submit"
@@ -106,7 +110,7 @@ function Account({
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 d-md-block d-none m-auto">
+            <div className="col-xl-4 d-md-block d-none m-auto">
               <ProgressBar step={step} />
             </div>
           </div>

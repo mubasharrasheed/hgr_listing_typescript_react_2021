@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Account from "./chanel/Account";
 import AccountConnect from "./chanel/AccountConnect";
+import ChooseList from "./chanel/ChooseList";
 import PlatForm from "./chanel/PlatForm";
 import StoreLocation from "./chanel/StoreLocation";
+import UserName from "./chanel/UserName";
 
 class ChannelCreate extends Component {
   // constructor(props) {
@@ -64,6 +66,24 @@ class ChannelCreate extends Component {
       case 4:
         return (
           <AccountConnect
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        );
+      case 5:
+        return (
+          <UserName
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        );
+      case 6:
+        return (
+          <ChooseList
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             handleChange={this.handleChange}

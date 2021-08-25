@@ -5,6 +5,7 @@ import ebay_logo from "../../assets/channel/ebay.png";
 import shopify_logo from "../../assets/channel/shopify-2.png";
 import amazon_logo from "../../assets/channel/amazon-2.png";
 import ProgressBar from "./ProgressBar";
+import MbProgressBar from "./MbProgressBar";
 function PlatForm({ nextStep, handleChange, values, step }: any) {
   const Continue = (e: any) => {
     e.preventDefault();
@@ -16,7 +17,10 @@ function PlatForm({ nextStep, handleChange, values, step }: any) {
       <div>
         <form>
           <div className="row mx-auto">
-            <div className="col-lg-8 shade-Channel bg-white br-8">
+            <div className="col-12 my-2 d-block d-xl-none px-0">
+              <MbProgressBar step={step} />
+            </div>
+            <div className="col-xl-8 shade-Channel bg-white br-8">
               <div className="row mx-auto px-lg-4 px-md-3">
                 <div className="text-center col-12">
                   <h5 className="font-weight-bold my-3 my-lg-4">
@@ -42,7 +46,7 @@ function PlatForm({ nextStep, handleChange, values, step }: any) {
                     </div>
                   </label>
                 </div>
-                <div className="col-md-6 mb-2">
+                <div className="col-md-6 mb-2 mt-lg-5 mt-md-3 mt-2">
                   <label className="h-100">
                     <input
                       type="radio"
@@ -104,7 +108,7 @@ function PlatForm({ nextStep, handleChange, values, step }: any) {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 d-md-block d-none m-auto">
+            <div className="col-lg-4 d-xl-block d-none m-auto">
               <ProgressBar step={step} />
             </div>
           </div>

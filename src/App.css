@@ -59,6 +59,9 @@ label {
 .border-primary {
   border-color: #262e80 !important;
 }
+.bg-input-light {
+  background-color: #f2f8ff;
+}
 .bg-blue {
   background-color: #5e84db;
 }
@@ -129,7 +132,7 @@ button {
   box-shadow: 1px 1px 10px 4px #00000014 !important;
 }
 .shade-card {
-  box-shadow: 1px 1px 3px 1px #0000000d;
+  box-shadow: 1px 1px 6px 2px #00000017;
 }
 .shade {
   box-shadow: 1px 1px 10px 4px #00000036 !important;
@@ -181,7 +184,15 @@ table {
 .drop-down {
   width: 23vw;
 }
+@media (min-width: 1025px) {
+  .text-xl-center {
+    text-align: center;
+  }
+}
 @media (max-width: 600px) {
+  .MuiContainer-root {
+    padding: 0 !important;
+  }
   .drop-down {
     width: 60vw;
   }

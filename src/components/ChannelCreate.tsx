@@ -18,6 +18,7 @@ class ChannelCreate extends Component {
     platform: "",
     storeLocation: "",
     flag: "",
+    location: "",
   };
   prevStep = () => {
     const { step } = this.state;
@@ -30,10 +31,13 @@ class ChannelCreate extends Component {
   handleChange = (input: any) => (e: any) => {
     this.setState({ [input]: e.target.value });
   };
-  handleChangePlatform = (value:any) => {
+  handleChangePlatform = (value: any) => {
     this.setState({ platform: value });
   };
-  
+  handleChangeLocation = (value: any) => {
+    this.setState({ location: value });
+  };
+
   render() {
     const { step, platform, storeLocation } = this.state;
     const values = { platform, storeLocation };
@@ -54,9 +58,9 @@ class ChannelCreate extends Component {
           <StoreLocation
             nextStep={this.nextStep}
             prevStep={this.prevStep}
-            handleChange={this.handleChange}
             values={values}
             step={step}
+            handleChangeLocation={this.handleChangeLocation}
           />
         );
       case 3:

@@ -13,7 +13,7 @@ import ProgressBar from "./ProgressBar";
 import MbProgressBar from "./MbProgressBar";
 function StoreLocation({
   nextStep,
-  handleChange,
+  handleChangeLocation,
   values,
   step,
   flag,
@@ -66,6 +66,8 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
+                      value={"location"}
+                      onChange={(e) => handleChangeLocation("location")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
@@ -85,6 +87,8 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
+                      value={"location"}
+                      onChange={(e) => handleChangeLocation("location")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
@@ -104,6 +108,8 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
+                      value={"location"}
+                      onChange={(e) => handleChangeLocation("location")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
@@ -123,6 +129,8 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
+                      value={"location"}
+                      onChange={(e) => handleChangeLocation("location")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
@@ -142,6 +150,8 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
+                      value={"location"}
+                      onChange={(e) => handleChangeLocation("location")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
@@ -161,6 +171,8 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
+                      value={"location"}
+                      onChange={(e) => handleChangeLocation("location")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
@@ -180,6 +192,8 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
+                      value={"location"}
+                      onChange={(e) => handleChangeLocation("location")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
@@ -199,7 +213,12 @@ function StoreLocation({
                   <button
                     onClick={Continue}
                     type="submit"
-                    className="border-0 text-grey bg-trans mx-auto btn-disbaled"
+                    className={`border-0 bg-trans mx-auto 
+                    ${
+                      values.location !== ""
+                        ? "d-blue"
+                        : "btn-disbaled text-grey"
+                    }`}
                   >
                     <div className="d-flex align-items-center">
                       Next{" "}
@@ -207,8 +226,9 @@ function StoreLocation({
                     </div>
                   </button>
                   <div className="text-danger small">
-                    *Please select a platform on which you’d like to sell in
-                    order to proceed.
+                    {values.location == ""
+                      ? "  *Please select a platform on which you’d like to sell in order to proceed."
+                      : ""}
                   </div>
                 </div>
               </div>

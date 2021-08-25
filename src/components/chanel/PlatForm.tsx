@@ -6,7 +6,13 @@ import shopify_logo from "../../assets/channel/shopify-2.png";
 import amazon_logo from "../../assets/channel/amazon-2.png";
 import ProgressBar from "./ProgressBar";
 import MbProgressBar from "./MbProgressBar";
-function PlatForm({ nextStep, handleChange,handleChangePlatform, values, step }: any) {
+function PlatForm({
+  nextStep,
+  handleChange,
+  handleChangePlatform,
+  values,
+  step,
+}: any) {
   const Continue = (e: any) => {
     e.preventDefault();
     nextStep();
@@ -104,7 +110,12 @@ function PlatForm({ nextStep, handleChange,handleChangePlatform, values, step }:
                   <button
                     onClick={Continue}
                     type="submit"
-                    className="border-0 text-grey bg-trans mx-auto btn-disbaled"
+                    className={`border-0 bg-trans mx-auto 
+                    ${
+                      values.platform !== ""
+                        ? "d-blue"
+                        : "btn-disbaled text-grey"
+                    }`}
                   >
                     <div className="d-flex align-items-center">
                       Next{" "}
@@ -112,8 +123,9 @@ function PlatForm({ nextStep, handleChange,handleChangePlatform, values, step }:
                     </div>
                   </button>
                   <div className="text-danger small">
-                    {values.platform ==""?'*Please select a platform on which you’d like to sell in order to proceed.':''}
-                    
+                    {values.platform == ""
+                      ? "*Please select a platform on which you’d like to sell in order to proceed."
+                      : ""}
                   </div>
                 </div>
               </div>

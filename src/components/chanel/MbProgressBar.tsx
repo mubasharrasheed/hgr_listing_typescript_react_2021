@@ -7,6 +7,23 @@ function MbProgressBar(props: any) {
   return (
     <div className="row mx-auto tex-center m-auto">
       <div className="col px-1">
+        <img className="w-100" src={progress_done} alt="bar-icon" />
+      </div>
+      <div className="col px-1">
+        <img
+          className="w-100"
+          src={` ${props.step > 1 ? progress_done : progress_remain} `}
+          alt="bar-icon"
+        />
+      </div>
+      <div className="col px-1">
+        <img
+          className="w-100"
+          src={` ${props.step > 2 ? progress_done : progress_remain} `}
+          alt="bar-icon"
+        />
+      </div>
+      <div className="col px-1">
         <img
           className="w-100"
           src={` ${props.step > 3 ? progress_done : progress_remain} `}
@@ -14,19 +31,18 @@ function MbProgressBar(props: any) {
         />
       </div>
       <div className="col px-1">
-        <img className="w-100" src={progress_remain} alt="bar-icon" />
+        <img
+          className="w-100"
+          src={` ${props.step > 4 ? progress_done : progress_remain} `}
+          alt="bar-icon"
+        />
       </div>
       <div className="col px-1">
-        <img className="w-100" src={progress_remain} alt="bar-icon" />
-      </div>
-      <div className="col px-1">
-        <img className="w-100" src={progress_remain} alt="bar-icon" />
-      </div>
-      <div className="col px-1">
-        <img className="w-100" src={progress_remain} alt="bar-icon" />
-      </div>
-      <div className="col px-1">
-        <img className="w-100" src={progress_remain} alt="bar-icon" />
+        <img
+          className="w-100"
+          src={` ${props.step > 5 ? progress_done : progress_remain} `}
+          alt="bar-icon"
+        />
       </div>
     </div>
   );

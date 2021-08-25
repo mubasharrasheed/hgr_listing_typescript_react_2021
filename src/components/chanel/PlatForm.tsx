@@ -6,7 +6,7 @@ import shopify_logo from "../../assets/channel/shopify-2.png";
 import amazon_logo from "../../assets/channel/amazon-2.png";
 import ProgressBar from "./ProgressBar";
 import MbProgressBar from "./MbProgressBar";
-function PlatForm({ nextStep, handleChange, values, step }: any) {
+function PlatForm({ nextStep, handleChange,handleChangePlatform, values, step }: any) {
   const Continue = (e: any) => {
     e.preventDefault();
     nextStep();
@@ -34,7 +34,7 @@ function PlatForm({ nextStep, handleChange, values, step }: any) {
                       name="product"
                       value={"platform"}
                       className="card-input-element"
-                      onChange={(e) => handleChange("platform", e)}
+                      onChange={(e) => handleChangePlatform("platform")}
                     />
                     <div className="panel panel-default card-input shade-card br-8 h-100">
                       <div className="mt-2 mb-md-5 mb-2">
@@ -55,7 +55,7 @@ function PlatForm({ nextStep, handleChange, values, step }: any) {
                       name="product"
                       value={"platform"}
                       className="card-input-element"
-                      onChange={(e) => handleChange("platform", e)}
+                      onChange={(e) => handleChangePlatform("platform")}
                     />
                     <div className="panel panel-default card-input shade-card br-8 h-100">
                       <div className="mt-2 mb-md-5 mb-2">
@@ -76,7 +76,7 @@ function PlatForm({ nextStep, handleChange, values, step }: any) {
                       name="product"
                       value={"platform"}
                       className="card-input-element"
-                      onChange={(e) => handleChange("platform", e)}
+                      onChange={(e) => handleChangePlatform("platform")}
                     />
                     <div className="panel panel-default card-input shade-card br-8">
                       <div className="mt-2 mb-md-4 mb-5">
@@ -112,8 +112,8 @@ function PlatForm({ nextStep, handleChange, values, step }: any) {
                     </div>
                   </button>
                   <div className="text-danger small">
-                    *Please select a platform on which you’d like to sell in
-                    order to proceed.
+                    {values.platform ==""?'*Please select a platform on which you’d like to sell in order to proceed.':''}
+                    
                   </div>
                 </div>
               </div>

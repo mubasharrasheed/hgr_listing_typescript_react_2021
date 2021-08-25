@@ -30,7 +30,10 @@ class ChannelCreate extends Component {
   handleChange = (input: any) => (e: any) => {
     this.setState({ [input]: e.target.value });
   };
-
+  handleChangePlatform = (value:any) => {
+    this.setState({ platform: value });
+  };
+  
   render() {
     const { step, platform, storeLocation } = this.state;
     const values = { platform, storeLocation };
@@ -43,6 +46,7 @@ class ChannelCreate extends Component {
             handleChange={this.handleChange}
             values={values}
             step={step}
+            handleChangePlatform={this.handleChangePlatform}
           />
         );
       case 2:

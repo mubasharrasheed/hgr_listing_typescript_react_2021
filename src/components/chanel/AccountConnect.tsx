@@ -1,26 +1,16 @@
 import React from "react";
-import { Container } from "@material-ui/core";
+import { Container, Input, Radio } from "@material-ui/core";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
-import aus_flag from "../../assets/channel/flags/AU.png";
-import ger_flag from "../../assets/channel/flags/DE.png";
-import sp_flag from "../../assets/channel/flags/ES.png";
-import fr_flag from "../../assets/channel/flags/FR.png";
-import it_flag from "../../assets/channel/flags/IT.png";
-import uk_flag from "../../assets/channel/flags/UK.png";
-import us_flag from "../../assets/channel/flags/US.png";
 import back_icon from "../../assets/channel/flags/back.png";
 import ProgressBar from "./ProgressBar";
 import MbProgressBar from "./MbProgressBar";
 function AccountConnect({
   nextStep,
-  handleChange,
+  handleChangeApi,
   values,
   step,
-  flag,
   prevStep,
 }: any) {
   const Continue = (e: any) => {
@@ -39,7 +29,7 @@ function AccountConnect({
             <div className="col-12 my-2 d-block d-xl-none px-0">
               <MbProgressBar step={step} />
             </div>
-            <div className="col-xl-8 shade-Channel bg-white br-8">
+            <div className="col-xl-8 shade-Channel bg-white br-8 mt-3">
               <button
                 onClick={Previous}
                 type="submit"
@@ -51,7 +41,7 @@ function AccountConnect({
                 </div>
               </button>
               <div className="row mx-auto px-lg-5 px-md-3">
-                <div className="text-center mx-auto col-md-6 mt-2 px-0 px-md-2">
+                <div className="text-center mx-auto col-md-12 px-0 px-md-2">
                   <h5 className="font-weight-bold mb-0">
                     How do you want HGR to connect to Your eBay account?
                   </h5>
@@ -62,14 +52,16 @@ function AccountConnect({
                   </i>
                 </div>
 
-                <div className="col-md-10 mx-auto mt-md-3 px-md-3 px-0">
+                <div className="col-md-10 mx-auto px-md-3 px-0">
                   <label className="">
                     <input
                       type="radio"
                       name="product"
                       className="card-input-element"
+                      value={"api"}
+                      onChange={(e) => handleChangeApi("easy")}
                     />
-                    <div className="panel panel-default card-input shade-card br-8">
+                    <div className="panel panel-default card-input shade-card br-8 my-1">
                       <div className="d-flex justify-content-between">
                         <div className=" font-weight-bold text-dark">
                           With API
@@ -77,7 +69,7 @@ function AccountConnect({
                         <div className="text-success">Easy</div>
                       </div>
                       <div className="panel-body">
-                        <div className="mb-md-3 mb-2">
+                        <div className="">
                           We automatically connect to eBay using their official
                           API.
                         </div>
@@ -88,16 +80,18 @@ function AccountConnect({
                     </div>
                   </label>
                 </div>
-                <div className="col-md-10 mx-auto mt-md-3 px-md-3 px-0">
+                <div className="col-md-10 mx-auto px-md-3 px-0">
                   <label className="">
                     <input
                       type="radio"
                       name="product"
                       className="card-input-element"
+                      value={"api"}
+                      onChange={(e) => handleChangeApi("advance")}
                     />
-                    <div className="panel panel-default card-input shade-card br-8">
+                    <div className="panel panel-default card-input shade-card br-8 my-1">
                       <div className="d-flex justify-content-between">
-                        <div className=" font-weight-bold text-dark">
+                        <div className="font-weight-bold text-dark">
                           With API
                         </div>
                         <div className="d-blue">
@@ -105,16 +99,16 @@ function AccountConnect({
                         </div>
                       </div>
                       <div className="panel-body">
-                        <div className="mb-md-3 mb-2">
+                        <div className="mb-md-1">
                           We update your store simulating manual interaction. We
                           don’t connect to eBay’s API.
                         </div>
                         <div className="d-flex align-items-center">
-                          <FormControlLabel
+                          <input
                             value="end"
-                            control={<Checkbox color="primary" />}
-                            label=""
-                            className="w-fit m-0"
+                            type="radio"
+                            name="extension"
+                            className="w-fit mr-2"
                           />
                           <span className="d-purple">
                             You will run the extension on your own computer
@@ -128,11 +122,11 @@ function AccountConnect({
                           </i>
                         </div>
                         <div className="d-flex align-items-center">
-                          <FormControlLabel
+                          <input
                             value="end"
-                            control={<Checkbox color="primary" />}
-                            label=""
-                            className="w-fit m-0"
+                            type="radio"
+                            name="extension"
+                            className="w-fit mr-2"
                           />
                           <span className="d-purple">
                             We will run the extension on our servers
@@ -159,21 +153,27 @@ function AccountConnect({
                     </div>
                   </label>
                 </div>
-                <div className="mx-auto mt-md-5 pt-lg-5 mb-2 text-xl-center text-right col-12">
+                <div className="mx-auto text-xl-center text-right col-12">
                   <button
                     onClick={Continue}
                     type="submit"
-                    className="border-0 text-grey bg-trans mx-auto btn-disbaled"
+                    disabled={values.api == ""}
+                    className={`border-0 bg-trans mx-auto ${
+                      values.api == "" ? "btn-disbaled text-grey" : "d-blue"
+                    } `}
                   >
                     <div className="d-flex align-items-center">
-                      Next
+                      <span className="font-weight-bold">Next</span>
                       <i className="fas fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                     </div>
                   </button>
-                  <div className="text-danger small">
-                    *Please select a platform on which you’d like to sell in
-                    order to proceed.
-                  </div>
+                </div>
+                <div
+                  className={`small w-100 mx-auto text-center font-weight-bold mb-1 text-danger lh-1 ${
+                    values.api == "" ? "" : "d-none"
+                  } `}
+                >
+                  <i>*Please select a way to connect</i>
                 </div>
               </div>
             </div>

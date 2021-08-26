@@ -203,3 +203,8 @@ table {
     padding: 10px !important;
   }
 }
+@media (min-width: 766px) {
+  .text-md-left {
+    text-align: left !important;
+  }
+}

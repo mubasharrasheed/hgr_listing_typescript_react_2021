@@ -26,14 +26,14 @@ function PlatForm({
             <div className="col-12 my-2 d-block d-xl-none px-0">
               <MbProgressBar step={step} />
             </div>
-            <div className="col-xl-8 shade-Channel bg-white br-8">
+            <div className="col-xl-8 mt-2 pt-1 shade-Channel bg-white br-8">
               <div className="row mx-auto px-lg-4 px-md-3">
                 <div className="text-center col-12">
-                  <h5 className="font-weight-bold my-3 my-lg-4">
+                  <h5 className="font-weight-bold mb-0">
                     Where would you like to sell
                   </h5>
                 </div>
-                <div className="col-md-6 mb-2 mt-lg-5 mt-md-3 mt-2">
+                <div className="col-md-6 mb-2 mt-md-3 mt-2">
                   <label className="h-100">
                     <input
                       type="radio"
@@ -54,7 +54,7 @@ function PlatForm({
                     </div>
                   </label>
                 </div>
-                <div className="col-md-6 mb-2 mt-lg-5 mt-md-3 mt-2">
+                <div className="col-md-6 mb-2 mt-md-3 mt-2">
                   <label className="h-100">
                     <input
                       type="radio"
@@ -106,10 +106,11 @@ function PlatForm({
                     </div>
                   </label>
                 </div>
-                <div className="mx-auto mt-md-4 mb-2 text-center">
+                <div className="mx-md-auto ml-auto mt-md-4 mb-2 text-md-center text-right">
                   <button
                     onClick={Continue}
                     type="submit"
+                    disabled={values.platform == ""}
                     className={`border-0 bg-trans mx-auto 
                     ${
                       values.platform !== ""
@@ -118,11 +119,11 @@ function PlatForm({
                     }`}
                   >
                     <div className="d-flex align-items-center">
-                      Next{" "}
+                      <span className="font-weight-bold">Next</span>
                       <i className="fas fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                     </div>
                   </button>
-                  <div className="text-danger small">
+                  <div className="text-danger small text-center">
                     {values.platform == ""
                       ? "*Please select a platform on which you’d like to sell in order to proceed."
                       : ""}

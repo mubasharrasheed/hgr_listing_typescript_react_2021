@@ -43,81 +43,76 @@ class App extends React.Component {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
 
-        <Layout className="bg-white h-100">
-          <div
-            onMouseEnter={() => {
-              if (!this.state.staticvalue) {
-                this.setState({ collapsed: false });
-                return;
-              }
-            }}
-            onMouseLeave={() => {
-              if (!this.state.staticvalue) {
-                this.setState({ collapsed: true });
-                return;
-              }
-            }}
-            className={`d-none d-lg-block ${
-              !this.state.staticvalue ? "w-sidebar-toggle" : ""
-            }`}
-          >
-            <Sidebar
-              staticvalue={this.state.staticvalue}
-              togglestatic={this.togglestatic}
-              toggle={this.toggle}
-              collapsed={this.state.collapsed}
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+            <Route
+              path="/home"
+              component={() => {
+                return (
+                  <>
+                    <Layout className="bg-white h-100">
+                      <div
+                        onMouseEnter={() => {
+                          if (!this.state.staticvalue) {
+                            this.setState({ collapsed: false });
+                            return;
+                          }
+                        }}
+                        onMouseLeave={() => {
+                          if (!this.state.staticvalue) {
+                            this.setState({ collapsed: true });
+                            return;
+                          }
+                        }}
+                        className={`d-none d-lg-block ${
+                          !this.state.staticvalue ? "w-sidebar-toggle" : ""
+                        }`}
+                      >
+                        <Sidebar
+                          staticvalue={this.state.staticvalue}
+                          togglestatic={this.togglestatic}
+                          toggle={this.toggle}
+                          collapsed={this.state.collapsed}
+                        />
+                      </div>
+                      <Layout className="site-layout">
+                        <div className="d-block d-lg-none">
+                          <SidebarMb />
+                        </div>
+                        <HeaderLayout>
+                          <Notifications title={"Listings"} />
+                          <div className="d-md-block d-none">
+                            <SearchBar />
+                          </div>
+                          <TabsList />
+                          <div className="my-2 d-block d-md-none">
+                            <SearchBar />
+                          </div>
+                        </HeaderLayout>
+                        <ContentLayout>
+                          <TableContent />
+                        </ContentLayout>
+                      </Layout>
+                    </Layout>
+                  </>
+                );
+              }}
             />
-          </div>
-          <Layout className="site-layout">
-            <div className="d-block d-lg-none">
-              <SidebarMb />
-            </div>
-<Router>
-            <Switch>
-              <Route exact path="/">
-                <Redirect to="/home" />
-              </Route>
-              <Route
-                path="/home"
-                component={() => {
-                  return (
-                    <>
-                      <HeaderLayout>
-                        <Notifications title={"Listings"} />
-                        <div className="d-md-block d-none">
-                          <SearchBar />
-                        </div>
-                        <TabsList />
-                        <div className="my-2 d-block d-md-none">
-                          <SearchBar />
-                        </div>
-                      </HeaderLayout>
-                      <ContentLayout>
-                        <TableContent />
-                      </ContentLayout>
-                    </>
-                  );
-                }}
-              />
-              <Route
-                path="/newchannel"
-                component={() => {
-                  return (
-                    <>
-                      <HeaderLayout>
-                        <Notifications title={""} />
-                      </HeaderLayout>
-                      <ContentLayout>
-                        <ChannelCreate />
-                      </ContentLayout>
-                    </>
-                  );
-                }}
-              />
-            </Switch>
-            </Router>
-          </Layout>
-        </Layout>
+            <Route
+              path="/newchannel"
+              component={() => {
+                return (
+                  <>
+                    <ChannelCreate />
+                  </>
+                );
+              }}
+            />
+          </Switch>
+        </Router>
       </React.Fragment>
     );
   }

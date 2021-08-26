@@ -27,7 +27,6 @@ function StoreLocation({
     e.preventDefault();
     prevStep();
   };
-  console.log(step, "storage");
   return (
     <Container component="main" maxWidth="lg">
       <div>
@@ -36,7 +35,7 @@ function StoreLocation({
             <div className="col-12 my-2 d-block d-xl-none px-0">
               <MbProgressBar step={step} />
             </div>
-            <div className="col-xl-8 shade-Channel bg-white br-8">
+            <div className="col-xl-8 shade-Channel bg-white br-8 mt-2">
               <button
                 onClick={Previous}
                 type="submit"
@@ -66,15 +65,20 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
-                      value={"location"}
-                      onChange={(e) => handleChangeLocation("location")}
+                      value={"storelocation"}
+                      onChange={(e) => handleChangeLocation("australia")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
                         src={aus_flag}
                         height="80"
                         width="80"
-                        className=""
+                        className={`  ${
+                          values.storeLocation == "australia" ||
+                          values.storeLocation == ""
+                            ? ""
+                            : "btn-disbaled"
+                        }`}
                         alt="flag"
                       />
                     </div>
@@ -87,15 +91,20 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
-                      value={"location"}
-                      onChange={(e) => handleChangeLocation("location")}
+                      value={"storelocation"}
+                      onChange={(e) => handleChangeLocation("germany")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
                         src={ger_flag}
                         height="80"
                         width="80"
-                        className=""
+                        className={`  ${
+                          values.storeLocation == "germany" ||
+                          values.storeLocation == ""
+                            ? ""
+                            : "btn-disbaled"
+                        }`}
                         alt="flag"
                       />
                     </div>
@@ -108,15 +117,20 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
-                      value={"location"}
-                      onChange={(e) => handleChangeLocation("location")}
+                      value=""
+                      onChange={(e) => handleChangeLocation("spain")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
                         src={sp_flag}
                         height="80"
                         width="80"
-                        className=""
+                        className={`  ${
+                          values.storeLocation == "spain" ||
+                          values.storeLocation == ""
+                            ? ""
+                            : "btn-disbaled"
+                        }`}
                         alt="flag"
                       />
                     </div>
@@ -129,15 +143,20 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
-                      value={"location"}
-                      onChange={(e) => handleChangeLocation("location")}
+                      value=""
+                      onChange={(e) => handleChangeLocation("france")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
                         src={fr_flag}
                         height="80"
                         width="80"
-                        className=""
+                        className={`  ${
+                          values.storeLocation == "france" ||
+                          values.storeLocation == ""
+                            ? ""
+                            : "btn-disbaled"
+                        }`}
                         alt="flag"
                       />
                     </div>
@@ -150,15 +169,20 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
-                      value={"location"}
-                      onChange={(e) => handleChangeLocation("location")}
+                      value=""
+                      onChange={(e) => handleChangeLocation("italy")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
                         src={it_flag}
                         height="80"
                         width="80"
-                        className=""
+                        className={`  ${
+                          values.storeLocation == "italy" ||
+                          values.storeLocation == ""
+                            ? ""
+                            : "btn-disbaled"
+                        }`}
                         alt="flag"
                       />
                     </div>
@@ -171,15 +195,20 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
-                      value={"location"}
-                      onChange={(e) => handleChangeLocation("location")}
+                      value=""
+                      onChange={(e) => handleChangeLocation("uk")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
                         src={uk_flag}
                         height="80"
                         width="80"
-                        className=""
+                        className={`  ${
+                          values.storeLocation == "uk" ||
+                          values.storeLocation == ""
+                            ? ""
+                            : "btn-disbaled"
+                        }`}
                         alt="flag"
                       />
                     </div>
@@ -192,15 +221,20 @@ function StoreLocation({
                       type="radio"
                       name="product"
                       className="card-input-flag d-none"
-                      value={"location"}
-                      onChange={(e) => handleChangeLocation("location")}
+                      value=""
+                      onChange={(e) => handleChangeLocation("us")}
                     />
                     <div className="panel panel-default mx-auto w-fit m-0 p-0 card-input rounded-circle">
                       <img
                         src={us_flag}
                         height="80"
                         width="80"
-                        className=""
+                        className={`  ${
+                          values.storeLocation == "us" ||
+                          values.storeLocation == ""
+                            ? ""
+                            : "btn-disbaled"
+                        }`}
                         alt="flag"
                       />
                     </div>
@@ -209,27 +243,29 @@ function StoreLocation({
                     </div>
                   </label>
                 </div>
-                <div className="mx-auto mt-md-4 mb-2 text-center col-12">
+                <div className="col-12"></div>
+                <div className="mx-md-auto ml-auto mt-md-4 text-center">
                   <button
                     onClick={Continue}
                     type="submit"
+                    disabled={values.storeLocation == ""}
                     className={`border-0 bg-trans mx-auto 
                     ${
-                      values.location !== ""
+                      values.storeLocation !== ""
                         ? "d-blue"
                         : "btn-disbaled text-grey"
                     }`}
                   >
                     <div className="d-flex align-items-center">
-                      Next{" "}
+                      <span className="font-weight-bold">Next</span>
                       <i className="fas fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                     </div>
                   </button>
-                  <div className="text-danger small">
-                    {values.location == ""
-                      ? "  *Please select a platform on which you’d like to sell in order to proceed."
-                      : ""}
-                  </div>
+                </div>
+                <div className="text-danger w-100 text-center mb-2 small">
+                  {values.storeLocation == ""
+                    ? "  *Please select a country in order to proceed"
+                    : ""}
                 </div>
               </div>
             </div>

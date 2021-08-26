@@ -19,6 +19,9 @@ class ChannelCreate extends Component {
     storeLocation: "",
     flag: "",
     location: "",
+    api: "",
+    user: "",
+    list: "",
   };
   prevStep = () => {
     const { step } = this.state;
@@ -35,12 +38,21 @@ class ChannelCreate extends Component {
     this.setState({ platform: value });
   };
   handleChangeLocation = (value: any) => {
-    this.setState({ location: value });
+    this.setState({ storeLocation: value });
+  };
+  handleChangeApi = (value: any) => {
+    this.setState({ api: value });
+  };
+  handleChangeUser = (value: any) => {
+    this.setState({ user: value });
+  };
+  handleChangeList = (value: any) => {
+    this.setState({ list: value });
   };
 
   render() {
-    const { step, platform, storeLocation } = this.state;
-    const values = { platform, storeLocation };
+    const { step, platform, storeLocation, api, user, list } = this.state;
+    const values = { platform, storeLocation, api, user, list };
 
     switch (step) {
       case 1:
@@ -68,7 +80,7 @@ class ChannelCreate extends Component {
           <Account
             nextStep={this.nextStep}
             prevStep={this.prevStep}
-            handleChange={this.handleChange}
+            // handleChangeApi={this.handleChangeApi}
             values={values}
             step={step}
           />
@@ -78,7 +90,7 @@ class ChannelCreate extends Component {
           <AccountConnect
             nextStep={this.nextStep}
             prevStep={this.prevStep}
-            handleChange={this.handleChange}
+            handleChangeApi={this.handleChangeApi}
             values={values}
             step={step}
           />
@@ -88,7 +100,7 @@ class ChannelCreate extends Component {
           <UserName
             nextStep={this.nextStep}
             prevStep={this.prevStep}
-            handleChange={this.handleChange}
+            handleChangeUser={this.handleChangeUser}
             values={values}
             step={step}
           />
@@ -98,7 +110,7 @@ class ChannelCreate extends Component {
           <ChooseList
             nextStep={this.nextStep}
             prevStep={this.prevStep}
-            handleChange={this.handleChange}
+            handleChangeList={this.handleChangeList}
             values={values}
             step={step}
           />

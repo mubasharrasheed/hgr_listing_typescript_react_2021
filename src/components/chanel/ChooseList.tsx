@@ -1,21 +1,25 @@
 import React from "react";
 import { Container } from "@material-ui/core";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import catalog_icon from "../../assets/channel/list/Group 2.png";
 import manual_icon from "../../assets/channel/list/Group 147.png";
 import bulk_icon from "../../assets/channel/list/Group 4.png";
 import we_icon from "../../assets/channel/list/Group 148.png";
 import back_icon from "../../assets/channel/flags/back.png";
 import ProgressBar from "./ProgressBar";
+import { useHistory } from "react-router-dom";
 function ChooseList({
   nextStep,
-  handleChange,
+  handleChangeList,
   values,
   step,
-  flag,
   prevStep,
 }: any) {
+  const history = useHistory();
+
+  const handleRoute = () => {
+    history.push("/home");
+  };
+
   const Continue = (e: any) => {
     e.preventDefault();
     nextStep();
@@ -29,38 +33,38 @@ function ChooseList({
       <div>
         <form>
           <div className="row mx-auto">
-            <div className="col-lg-8 shade-Channel bg-white br-8">
+            <div className="col-lg-8 shade-Channel bg-white br-8 mt-3">
               <button
                 onClick={Previous}
                 type="submit"
                 className="bg-trans border-0 text-left lh-1"
               >
                 <img src={back_icon} height="30" alt="previous_icon" />
-                <div className="d-purple font-weight-bold small">
+                <div className="d-purple font-weight-bold small d-none d-md-block">
                   Previous step
                 </div>
               </button>
               <div className="row mx-auto px-lg-5 px-md-3">
-                <div className="text-center mx-auto col-md-6 mt-2 px-0 px-md-2">
-                  <h5 className="font-weight-bold mb-0">
-                    Choose a way to list
-                  </h5>
+                <div className="text-center mx-auto col-md-6 px-0 px-md-2">
+                  <h5 className="font-weight-bold">Choose a way to list</h5>
                 </div>
 
-                <div className="col-md-10 mx-auto mt-md-3 px-md-3 px-0">
-                  <label className="">
+                <div className="col-md-10 mx-auto  px-md-3 px-0">
+                  <label className="mb-0">
                     <input
                       type="radio"
                       name="product"
                       className="card-input-element"
+                      value={"catalog"}
+                      onChange={(e) => handleChangeList("catalog")}
                     />
-                    <div className="panel panel-default card-input shade-card br-8">
-                      <div className="d-flex justify-content-around align-items-center">
+                    <div className="panel panel-default card-input shade-card br-8 my-1 py-2">
+                      <div className="d-md-flex d-block justify-content-around align-items-center text-center text-md-left">
                         <div className="">
                           <img
                             src={catalog_icon}
                             alt="icon"
-                            className="w-100"
+                            className="w-md-100"
                           />
                         </div>
                         <div className="px-md-2">
@@ -70,24 +74,30 @@ function ChooseList({
                             products for you.
                           </div>
                         </div>
-                        <div className="">
+                        <div className="text-right">
                           <i className="fas d-blue fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                         </div>
                       </div>
                     </div>
                   </label>
                 </div>
-                <div className="col-md-10 mx-auto mt-md-3 px-md-3 px-0">
-                  <label className="">
+                <div className="col-md-10 mx-auto  px-md-3 px-0">
+                  <label className="mb-0">
                     <input
                       type="radio"
                       name="product"
                       className="card-input-element"
+                      value={"Manual"}
+                      onChange={(e) => handleChangeList("Manual")}
                     />
-                    <div className="panel panel-default card-input shade-card br-8">
-                      <div className="d-flex justify-content-around align-items-center">
+                    <div className="panel panel-default card-input shade-card br-8 my-1 py-2">
+                      <div className="d-md-flex d-block justify-content-around align-items-center text-center text-md-left">
                         <div className="">
-                          <img src={manual_icon} alt="icon" className="w-100" />
+                          <img
+                            src={manual_icon}
+                            alt="icon"
+                            className="w-md-100"
+                          />
                         </div>
                         <div className="px-md-2">
                           <h5 className="font-weight-bold d-blue">
@@ -98,24 +108,30 @@ function ChooseList({
                             from the source.
                           </div>
                         </div>
-                        <div className="">
+                        <div className="text-right">
                           <i className="fas d-blue fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                         </div>
                       </div>
                     </div>
                   </label>
                 </div>
-                <div className="col-md-10 mx-auto mt-md-3 px-md-3 px-0">
-                  <label className="">
+                <div className="col-md-10 mx-auto  px-md-3 px-0">
+                  <label className="mb-0">
                     <input
                       type="radio"
                       name="product"
                       className="card-input-element"
+                      value={"bulk"}
+                      onChange={(e) => handleChangeList("bulk")}
                     />
-                    <div className="panel panel-default card-input shade-card br-8">
-                      <div className="d-flex justify-content-around align-items-center">
+                    <div className="panel panel-default card-input shade-card br-8 my-1 py-2">
+                      <div className="d-md-flex d-block justify-content-around align-items-center text-center text-md-left">
                         <div className="">
-                          <img src={bulk_icon} alt="icon" className="w-100" />
+                          <img
+                            src={bulk_icon}
+                            alt="icon"
+                            className="w-md-100"
+                          />
                         </div>
                         <div className="px-md-2">
                           <h5 className="font-weight-bold d-blue">
@@ -126,24 +142,26 @@ function ChooseList({
                             different sources.
                           </div>
                         </div>
-                        <div className="">
+                        <div className="text-right">
                           <i className="fas d-blue fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                         </div>
                       </div>
                     </div>
                   </label>
                 </div>
-                <div className="col-md-10 mx-auto mt-md-3 px-md-3 px-0">
-                  <label className="">
+                <div className="col-md-10 mx-auto  px-md-3 px-0">
+                  <label className="mb-0">
                     <input
                       type="radio"
                       name="product"
                       className="card-input-element"
+                      value={"we"}
+                      onChange={(e) => handleChangeList("we")}
                     />
-                    <div className="panel panel-default card-input shade-card br-8">
-                      <div className="d-flex justify-content-around align-items-center">
+                    <div className="panel panel-default card-input shade-card br-8 my-1 py-2">
+                      <div className="d-md-flex d-block justify-content-around align-items-center text-center text-md-left">
                         <div className="">
-                          <img src={we_icon} alt="icon" className="w-100" />
+                          <img src={we_icon} alt="icon" className="w-md-100" />
                         </div>
                         <div className="px-md-2">
                           <h5 className="font-weight-bold d-blue">
@@ -157,28 +175,34 @@ function ChooseList({
                             For only £9.99
                           </button>
                         </div>
-                        <div className="">
+                        <div className="text-right">
                           <i className="fas d-blue fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                         </div>
                       </div>
                     </div>
                   </label>
                 </div>
-                <div className="mx-auto mt-md-5 pt-lg-5 mb-2 text-center col-12">
+                <div className="mx-auto text-md-center text-right col-12">
                   <button
-                    onClick={Continue}
+                    onClick={handleRoute}
                     type="submit"
-                    className="border-0 text-grey bg-trans mx-auto btn-disbaled"
+                    disabled={values.list == ""}
+                    className={`border-0 bg-trans mx-auto ${
+                      values.list == "" ? "btn-disbaled text-grey" : "d-blue"
+                    } `}
                   >
                     <div className="d-flex align-items-center">
-                      Fininsh
+                      <span className="font-weight-bold">Fininsh</span>
                       <i className="fas fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                     </div>
                   </button>
-                  <div className="text-danger small">
-                    *Please select a platform on which you’d like to sell in
-                    order to proceed.
-                  </div>
+                </div>
+                <div
+                  className={`small text-danger w-100 text-center mb-2 font-weight-bold ${
+                    values.list == "" ? "" : "d-none"
+                  } `}
+                >
+                  *Please choose a way to list.
                 </div>
               </div>
             </div>

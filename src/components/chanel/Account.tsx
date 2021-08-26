@@ -35,7 +35,7 @@ function Account({
             <div className="col-12 my-2 d-block d-xl-none px-0">
               <MbProgressBar step={step} />
             </div>
-            <div className="col-xl-8 shade-Channel bg-white br-8">
+            <div className="col-xl-8 shade-Channel bg-white br-8 mt-2">
               <button
                 onClick={Previous}
                 type="submit"
@@ -87,26 +87,23 @@ function Account({
                       <span className="font-weight-bold">
                         How to become an eBay seller
                       </span>
-                      <i className="fas fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                     </div>
                   </a>
                 </div>
-                <div className="col-10 mx-auto border-bottom mt-2 mb-lg-5"></div>
-                <div className="mx-auto mt-md-5 pt-lg-5 mb-2 text-center col-12">
+                <div className="border-bottom mt-2 mb-lg-5  col-11 col-md-9 mx-auto"></div>
+                <div className="mx-md-auto ml-auto mt-5 pt-lg-5 mb-2 text-center">
                   <button
                     onClick={Continue}
                     type="submit"
-                    className="border-0 text-grey bg-trans mx-auto btn-disbaled"
+                    className="border-0 d-blue bg-trans mx-auto"
                   >
                     <div className="d-flex align-items-center">
-                      Yes, I do have an eBay account
+                      <span className="font-weight-bold">
+                        Yes, I do have an eBay account
+                      </span>
                       <i className="fas fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                     </div>
                   </button>
-                  <div className="text-danger small">
-                    *Please select a platform on which you’d like to sell in
-                    order to proceed.
-                  </div>
                 </div>
               </div>
             </div>

@@ -3,14 +3,7 @@ import { Container } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
 import back_icon from "../../assets/channel/flags/back.png";
 import ProgressBar from "./ProgressBar";
-function UserName({
-  nextStep,
-  handleChange,
-  values,
-  step,
-  flag,
-  prevStep,
-}: any) {
+function UserName({ nextStep, handleChangeUser, values, step, prevStep }: any) {
   const Continue = (e: any) => {
     e.preventDefault();
     nextStep();
@@ -24,7 +17,7 @@ function UserName({
       <div>
         <form>
           <div className="row mx-auto">
-            <div className="col-lg-8 shade-Channel bg-white br-8">
+            <div className="col-lg-8 shade-Channel bg-white br-8 mt-3">
               <button
                 onClick={Previous}
                 type="submit"
@@ -55,25 +48,32 @@ function UserName({
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
                       placeholder="eBay username"
-                    ></input>
+                      onChange={(e) => handleChangeUser(e.target.value)}
+                    />
+                    <div
+                      className={`small text-left font-weight-bold
+                    ${values.user == "" ? "text-danger" : "d-none"}
+                    `}
+                    >
+                      <i>*Please fill in your eBay username</i>
+                    </div>
                   </div>
                 </div>
 
-                <div className="mx-auto mt-md-5 pt-lg-5 mb-2 text-center col-12">
+                <div className="h-50 mx-auto pt-2 mb-3 text-md-center text-right w-100 align-items-end d-flex">
                   <button
                     onClick={Continue}
                     type="submit"
-                    className="border-0 text-grey bg-trans mx-auto btn-disbaled"
+                    disabled={values.user == ""}
+                    className={`border-0 bg-trans mx-md-auto ml-auto 
+                    ${values.user == "" ? " text-grey btn-disbaled" : "d-blue"}
+                    `}
                   >
                     <div className="d-flex align-items-center">
-                      Next
+                      <span className="font-weight-bold">Next</span>
                       <i className="fas fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                     </div>
                   </button>
-                  <div className="text-danger small">
-                    *Please select a platform on which you’d like to sell in
-                    order to proceed.
-                  </div>
                 </div>
               </div>
             </div>

@@ -9,6 +9,7 @@ import help from "../assets/help.svg";
 import { Layout, Menu } from "antd";
 import pin_icon from "../assets/pin.svg";
 import { useHistory } from "react-router-dom";
+
 const { Sider } = Layout;
 interface Props {
   collapsed: boolean;
@@ -37,6 +38,7 @@ export default function Sidebar(props: Props) {
       <Menu theme="light" mode="inline" defaultSelectedKeys={["4"]}>
         <Menu.Item key="0" icon={<img src={logo} height={30} alt="" />}>
           <span className="font-weight-bold d-blue">HGR</span>
+          <h1>{t("Welcome to React")}</h1>
         </Menu.Item>
         <div
           className="text-white position-absolute"

@@ -7,12 +7,6 @@ import StoreLocation from "./chanel/StoreLocation";
 import UserName from "./chanel/UserName";
 
 class ChannelCreate extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.state = {};
-  // }
-
   state = {
     step: 1,
     platform: "",

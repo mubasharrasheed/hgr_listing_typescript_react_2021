@@ -33,7 +33,61 @@ function PlatForm({
                     Where would you like to sell
                   </h5>
                 </div>
-                <div className="col-md-6 mb-2 mt-md-3 mt-2">
+                <div className="col-md-6 col-4 mt-md-3 px-0 px-md-2">
+                  <label className="h-md-100">
+                    <input
+                      type="radio"
+                      name="product"
+                      value={"platform"}
+                      className="card-input-element"
+                      onChange={(e) => handleChangePlatform("platform")}
+                    />
+                    <div className="panel panel-default panel-platform card-input shade-card br-8 h-100">
+                      <div className="mt-md-2 mb-md-5 mb-md-2">
+                        <img
+                          src={ebay_logo}
+                          className="w-res-100"
+                          alt="ebay logo"
+                        />
+                      </div>
+                      <div className="d-md-block d-none">
+                        <div className=" font-weight-bold">Marketplace</div>
+                        <div className="panel-body">
+                          It lets you sell products from any category. Update
+                          your listing information and sell anything you wish.
+                        </div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+                <div className="col-md-6 col-4 mt-md-3 px-0 px-md-2">
+                  <label className="h-md-100">
+                    <input
+                      type="radio"
+                      name="product"
+                      value={"platform"}
+                      className="card-input-element"
+                      onChange={(e) => handleChangePlatform("platform")}
+                    />
+                    <div className="panel panel-default panel-platform card-input shade-card br-8 h-100">
+                      <div className="mt-md-2 mb-md-5 mb-md-2">
+                        <img
+                          src={shopify_logo}
+                          className="w-res-100"
+                          alt="ebay logo"
+                        />
+                      </div>
+                      <div className="d-md-block d-none">
+                        <div className=" font-weight-bold">Your own store</div>
+                        <div className="panel-body">
+                          It provides a range of e-commerce tools to help you
+                          build and promote your store.
+                        </div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+                <div className="col-md-12 col-4 mt-md-3 px-0 px-md-3">
                   <label className="h-100">
                     <input
                       type="radio"
@@ -42,57 +96,21 @@ function PlatForm({
                       className="card-input-element"
                       onChange={(e) => handleChangePlatform("platform")}
                     />
-                    <div className="panel panel-default card-input shade-card br-8 h-100">
-                      <div className="mt-2 mb-md-5 mb-2">
-                        <img src={ebay_logo} alt="ebay logo" />
+                    <div className="panel panel-default panel-platform card-input shade-card br-8">
+                      <div className="mt-md-2 mb-md-4 mb-md-5">
+                        <img
+                          src={amazon_logo}
+                          className="w-res-100"
+                          alt="ebay logo"
+                        />
                       </div>
-                      <div className=" font-weight-bold">Marketplace</div>
-                      <div className="panel-body">
-                        It lets you sell products from any category. Update your
-                        listing information and sell anything you wish.
-                      </div>
-                    </div>
-                  </label>
-                </div>
-                <div className="col-md-6 mb-2 mt-md-3 mt-2">
-                  <label className="h-100">
-                    <input
-                      type="radio"
-                      name="product"
-                      value={"platform"}
-                      className="card-input-element"
-                      onChange={(e) => handleChangePlatform("platform")}
-                    />
-                    <div className="panel panel-default card-input shade-card br-8 h-100">
-                      <div className="mt-2 mb-md-5 mb-2">
-                        <img src={shopify_logo} alt="ebay logo" />
-                      </div>
-                      <div className=" font-weight-bold">Your own store</div>
-                      <div className="panel-body">
-                        It provides a range of e-commerce tools to help you
-                        build and promote your store.
-                      </div>
-                    </div>
-                  </label>
-                </div>
-                <div className="col-md-12 mt-md-3">
-                  <label className="">
-                    <input
-                      type="radio"
-                      name="product"
-                      value={"platform"}
-                      className="card-input-element"
-                      onChange={(e) => handleChangePlatform("platform")}
-                    />
-                    <div className="panel panel-default card-input shade-card br-8">
-                      <div className="mt-2 mb-md-4 mb-5">
-                        <img src={amazon_logo} alt="ebay logo" />
-                      </div>
-                      <div className=" font-weight-bold">Marketplace</div>
-                      <div className="panel-body">
-                        It gives your products great exposure due to the high
-                        number of visitors. Optimise your titles and item
-                        information to increase sells.
+                      <div className="d-md-block d-none">
+                        <div className=" font-weight-bold">Marketplace</div>
+                        <div className="panel-body">
+                          It gives your products great exposure due to the high
+                          number of visitors. Optimise your titles and item
+                          information to increase sells.
+                        </div>
                         <div>
                           {values.platform ? (
                             <i className="font-weight-bold">
@@ -106,7 +124,27 @@ function PlatForm({
                     </div>
                   </label>
                 </div>
+                <div className="row d-flex d-md-none mt-2 text-center h-resp-65">
+                  {values.platform == "" ? (
+                    ""
+                  ) : (
+                    <div className="m-auto">
+                      <div className=" font-weight-bold h6 mb-0">
+                        Marketplace
+                      </div>
+                      <div className="panel-body">
+                        It lets you sell products from any category. Update your
+                        listing information and sell anything you wish.
+                      </div>
+                    </div>
+                  )}
+                </div>
                 <div className="mx-md-auto ml-auto mt-md-4 mb-2 text-md-center text-right">
+                  <div className="text-danger small text-center">
+                    {values.platform == ""
+                      ? "*Please select a platform on which you’d like to sell in order to proceed."
+                      : ""}
+                  </div>
                   <button
                     onClick={Continue}
                     type="submit"
@@ -123,11 +161,6 @@ function PlatForm({
                       <i className="fas fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                     </div>
                   </button>
-                  <div className="text-danger small text-center">
-                    {values.platform == ""
-                      ? "*Please select a platform on which you’d like to sell in order to proceed."
-                      : ""}
-                  </div>
                 </div>
               </div>
             </div>

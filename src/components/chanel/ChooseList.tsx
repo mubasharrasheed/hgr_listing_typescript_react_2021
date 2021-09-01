@@ -49,7 +49,7 @@ function ChooseList({
                   <h5 className="font-weight-bold">Choose a way to list</h5>
                 </div>
 
-                <div className="col-md-10 mx-auto  px-md-3 px-0">
+                <div className="col-md-10 mx-auto col-6 px-md-3 px-0">
                   <label className="mb-0">
                     <input
                       type="radio"
@@ -69,19 +69,19 @@ function ChooseList({
                         </div>
                         <div className="px-md-2">
                           <h5 className="font-weight-bold d-blue">Catalog</h5>
-                          <div className="lh-1">
+                          <div className="lh-1 d-md-block d-none">
                             Choose your favourite supplier and we recommend
                             products for you.
                           </div>
                         </div>
-                        <div className="text-right">
+                        <div className="text-right d-md-block d-none">
                           <i className="fas d-blue fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                         </div>
                       </div>
                     </div>
                   </label>
                 </div>
-                <div className="col-md-10 mx-auto  px-md-3 px-0">
+                <div className="col-md-10 mx-auto col-6  px-md-3 px-0">
                   <label className="mb-0">
                     <input
                       type="radio"
@@ -103,19 +103,19 @@ function ChooseList({
                           <h5 className="font-weight-bold d-blue">
                             Manual listing
                           </h5>
-                          <div className="lh-1">
+                          <div className="lh-1 d-md-block d-none">
                             Use our browser extension to add listings directly
                             from the source.
                           </div>
                         </div>
-                        <div className="text-right">
+                        <div className="text-right d-md-block d-none">
                           <i className="fas d-blue fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                         </div>
                       </div>
                     </div>
                   </label>
                 </div>
-                <div className="col-md-10 mx-auto  px-md-3 px-0">
+                <div className="col-md-10 mx-auto col-6 px-md-3 px-0">
                   <label className="mb-0">
                     <input
                       type="radio"
@@ -137,19 +137,19 @@ function ChooseList({
                           <h5 className="font-weight-bold d-blue">
                             Bulk listing
                           </h5>
-                          <div className="lh-1">
+                          <div className="lh-1 d-md-block d-none">
                             List as many items as you want by adding urls from
                             different sources.
                           </div>
                         </div>
-                        <div className="text-right">
+                        <div className="text-right d-md-block d-none">
                           <i className="fas d-blue fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                         </div>
                       </div>
                     </div>
                   </label>
                 </div>
-                <div className="col-md-10 mx-auto  px-md-3 px-0">
+                <div className="col-md-10 mx-auto col-6 px-md-3 px-0">
                   <label className="mb-0">
                     <input
                       type="radio"
@@ -158,7 +158,7 @@ function ChooseList({
                       value={"we"}
                       onChange={(e) => handleChangeList("we")}
                     />
-                    <div className="panel panel-default card-input shade-card br-8 my-1 py-2">
+                    <div className="panel panel-default card-input shade-card br-8 my-1 py-2 px-0 px-md-2">
                       <div className="d-md-flex d-block justify-content-around align-items-center text-center text-md-left">
                         <div className="">
                           <img src={we_icon} alt="icon" className="w-md-100" />
@@ -167,22 +167,44 @@ function ChooseList({
                           <h5 className="font-weight-bold d-blue">
                             We list for you
                           </h5>
-                          <div className="lh-1">
+                          <div className="lh-1 d-md-block d-none">
                             No idea what to list? We will pick the best selling
                             items for you!
                           </div>
-                          <button className="bg-success border-0 text-white br-8 mt-2">
+                          <button className="bg-success border-0 text-white br-8 mt-2 sale-tag">
                             For only £9.99
                           </button>
                         </div>
-                        <div className="text-right">
+                        <div className="text-right d-md-block d-none">
                           <i className="fas d-blue fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                         </div>
                       </div>
                     </div>
                   </label>
                 </div>
-                <div className="mx-auto text-md-center text-right col-12">
+                <div className="mx-auto text-md-center text-right col-12 mt-2">
+                  <div className="d-block d-md-none">
+                    <div
+                      className={`text-danger w-100 my-5 py-5 text-center font-weight-bold ${
+                        values.list == "" ? "" : "d-none"
+                      } `}
+                    >
+                      *Please choose a way to list.
+                    </div>
+                  </div>
+                  <div className="d-block d-md-none">
+                    <div
+                      className={`w-100 text-center my-4 py-5 font-weight-bold ${
+                        values.list == "" ? "d-none" : ""
+                      } `}
+                    >
+                      <h5 className="font-weight-bold d-blue mb-0">Catalog</h5>
+                      <div>
+                        Choose your favourite supplier and we recommend products
+                        for you.
+                      </div>
+                    </div>
+                  </div>
                   <button
                     onClick={handleRoute}
                     type="submit"
@@ -197,12 +219,14 @@ function ChooseList({
                     </div>
                   </button>
                 </div>
-                <div
-                  className={`small text-danger w-100 text-center mb-2 font-weight-bold ${
-                    values.list == "" ? "" : "d-none"
-                  } `}
-                >
-                  *Please choose a way to list.
+                <div className="d-md-block d-none">
+                  <div
+                    className={` text-danger w-100 text-center mb-2 font-weight-bold ${
+                      values.list == "" ? "" : "d-none"
+                    } `}
+                  >
+                    *Please choose a way to list.
+                  </div>
                 </div>
               </div>
             </div>

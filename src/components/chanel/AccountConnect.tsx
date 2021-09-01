@@ -36,7 +36,7 @@ function AccountConnect({
                 className="bg-trans border-0 text-left lh-1"
               >
                 <img src={back_icon} height="30" alt="previous_icon" />
-                <div className="d-purple font-weight-bold small">
+                <div className="d-purple font-weight-bold small d-md-block d-none">
                   Previous step
                 </div>
               </button>
@@ -91,9 +91,7 @@ function AccountConnect({
                     />
                     <div className="panel panel-default card-input shade-card br-8 my-1">
                       <div className="d-flex justify-content-between">
-                        <div className="font-weight-bold text-dark">
-                          With API
-                        </div>
+                        <div className="font-weight-bold text-dark">No API</div>
                         <div className="d-blue">
                           <i>Advance</i>
                         </div>
@@ -154,6 +152,15 @@ function AccountConnect({
                   </label>
                 </div>
                 <div className="mx-auto text-xl-center text-right col-12">
+                  <div className="d-block d-md-none w-100 text-center">
+                    <div
+                      className={` mx-auto text-center font-weight-bold mb-1 text-danger lh-1 ${
+                        values.api == "" ? "" : "d-none"
+                      } `}
+                    >
+                      <i>*Please select a way to connect</i>
+                    </div>
+                  </div>
                   <button
                     onClick={Continue}
                     type="submit"
@@ -168,12 +175,14 @@ function AccountConnect({
                     </div>
                   </button>
                 </div>
-                <div
-                  className={`small w-100 mx-auto text-center font-weight-bold mb-1 text-danger lh-1 ${
-                    values.api == "" ? "" : "d-none"
-                  } `}
-                >
-                  <i>*Please select a way to connect</i>
+                <div className="d-md-block d-none w-100 text-center">
+                  <div
+                    className={`small mx-auto text-center font-weight-bold mb-1 text-danger lh-1 ${
+                      values.api == "" ? "" : "d-none"
+                    } `}
+                  >
+                    <i>*Please select a way to connect</i>
+                  </div>
                 </div>
               </div>
             </div>

@@ -184,12 +184,32 @@ table {
 .drop-down {
   width: 23vw;
 }
+.h-80vh {
+  height: 80vh;
+}
 @media (min-width: 1025px) {
   .text-xl-center {
     text-align: center;
   }
+  .MuiContainer-maxWidthLg {
+    height: 100vh !important;
+    align-items: center;
+    display: flex !important;
+  }
 }
 @media (max-width: 600px) {
+  .sale-tag {
+    position: absolute;
+    bottom: -4%;
+    width: fit-content;
+    left: 23%;
+  }
+  .w-res-100 {
+    width: 100%;
+  }
+  .panel-platform {
+    height: 50px !important;
+  }
   .MuiContainer-root {
     padding: 0 !important;
   }
@@ -202,9 +222,15 @@ table {
   .ant-layout-content {
     padding: 10px !important;
   }
+  .h-resp-65 {
+    height: 65vh;
+  }
 }
 @media (min-width: 766px) {
   .text-md-left {
     text-align: left !important;
+  }
+  .h-md-100 {
+    height: 100%;
   }
 }

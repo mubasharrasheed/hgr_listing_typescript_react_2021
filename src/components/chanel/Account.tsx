@@ -42,7 +42,7 @@ function Account({
                 className="bg-trans border-0 text-left lh-1"
               >
                 <img src={back_icon} height="30" alt="previous_icon" />
-                <div className="d-purple font-weight-bold small">
+                <div className="d-purple font-weight-bold small d-md-block d-none">
                   Previous step
                 </div>
               </button>

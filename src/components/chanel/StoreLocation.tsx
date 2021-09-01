@@ -244,6 +244,11 @@ function StoreLocation({
                   </label>
                 </div>
                 <div className="col-12"></div>
+                <div className="text-danger w-100 text-center small d-block d-md-none">
+                  {values.storeLocation == ""
+                    ? "  *Please select a country in order to proceed"
+                    : ""}
+                </div>
                 <div className="mx-md-auto ml-auto mt-md-4 text-center">
                   <button
                     onClick={Continue}
@@ -262,7 +267,7 @@ function StoreLocation({
                     </div>
                   </button>
                 </div>
-                <div className="text-danger w-100 text-center mb-2 small">
+                <div className="text-danger w-100 text-center mb-2 small d-md-block d-none">
                   {values.storeLocation == ""
                     ? "  *Please select a country in order to proceed"
                     : ""}

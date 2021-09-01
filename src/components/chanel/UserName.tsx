@@ -3,6 +3,7 @@ import { Container } from "@material-ui/core";
 import Input from "@material-ui/core/Input";
 import back_icon from "../../assets/channel/flags/back.png";
 import ProgressBar from "./ProgressBar";
+import MbProgressBar from "./MbProgressBar";
 function UserName({ nextStep, handleChangeUser, values, step, prevStep }: any) {
   const Continue = (e: any) => {
     e.preventDefault();
@@ -17,6 +18,9 @@ function UserName({ nextStep, handleChangeUser, values, step, prevStep }: any) {
       <div>
         <form>
           <div className="row mx-auto">
+            <div className="col-12 my-2 d-block d-xl-none px-0">
+              <MbProgressBar step={step} />
+            </div>
             <div className="col-lg-8 shade-Channel bg-white br-8 mt-3">
               <button
                 onClick={Previous}
@@ -24,16 +28,15 @@ function UserName({ nextStep, handleChangeUser, values, step, prevStep }: any) {
                 className="bg-trans border-0 text-left lh-1"
               >
                 <img src={back_icon} height="30" alt="previous_icon" />
-                <div className="d-purple font-weight-bold small">
+                <div className="d-purple font-weight-bold small d-md-block d-none">
                   Previous step
                 </div>
               </button>
-              <div className="row mx-auto px-lg-5 px-md-3 h-100">
+              <div className="row mx-auto px-lg-5 px-md-3 h-80vh">
                 <div className="text-center mx-auto col-md-6 mt-2 px-0 px-md-2">
                   <h5 className="font-weight-bold mb-0">
                     What is your eBay username?
                   </h5>
-                  div
                 </div>
                 <div className="text-center col-12 col-md-8 mx-auto">
                   <div>
@@ -51,7 +54,7 @@ function UserName({ nextStep, handleChangeUser, values, step, prevStep }: any) {
                       onChange={(e) => handleChangeUser(e.target.value)}
                     />
                     <div
-                      className={`small text-left font-weight-bold
+                      className={`text-left font-weight-bold
                     ${values.user == "" ? "text-danger" : "d-none"}
                     `}
                     >
@@ -59,8 +62,7 @@ function UserName({ nextStep, handleChangeUser, values, step, prevStep }: any) {
                     </div>
                   </div>
                 </div>
-
-                <div className="h-50 mx-auto pt-2 mb-3 text-md-center text-right w-100 align-items-end d-flex">
+                <div className="mx-auto mt-auto pt-2 mb-3 text-md-center text-right w-100 align-items-end d-flex">
                   <button
                     onClick={Continue}
                     type="submit"

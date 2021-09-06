@@ -4,6 +4,7 @@ import progress_remain from "../../assets/channel/progress_remain.png";
 import progress_remain_dots from "../../assets/channel/progress_remain_dots.png";
 import progress_done_dots from "../../assets/channel/progress_done_dots.png";
 function ProgressBar(props: any) {
+  console.log(props.platform, "sidebar");
   return (
     <div className="row mx-auto tex-center">
       <div className="col-10 mx-auto">
@@ -62,7 +63,12 @@ function ProgressBar(props: any) {
               props.step > 3 ? "text-success" : ""
             } font-weight-bold m-auto`}
           >
-            Ebay account
+            {props.platform == "ebay"
+              ? " Ebay "
+              : props.platform == "amazon"
+              ? " Amazon "
+              : " Shopify "}
+            account
           </div>
         </div>
       </div>
@@ -111,7 +117,13 @@ function ProgressBar(props: any) {
               props.step > 5 ? "text-success" : ""
             } font-weight-bold m-auto`}
           >
-            Link eBay account
+            Link{" "}
+            {props.platform == "ebay"
+              ? " Ebay "
+              : props.platform == "amazon"
+              ? " Amazon "
+              : " Shopify "}{" "}
+            account
           </div>
         </div>
       </div>

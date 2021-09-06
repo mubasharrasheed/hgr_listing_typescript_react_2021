@@ -77,8 +77,12 @@ button:focus {
 .purple {
   color: #9694ff;
 }
+
 .d-purple {
   color: #6a74de;
+}
+.bg-d-purple {
+  background-color: #6a74de;
 }
 .bg-purple {
   background-color: #9694ff;
@@ -187,6 +191,9 @@ table {
 .h-80vh {
   height: 80vh;
 }
+.h-15p {
+  height: 15px;
+}
 @media (min-width: 1025px) {
   .text-xl-center {
     text-align: center;
@@ -197,7 +204,21 @@ table {
     display: flex !important;
   }
 }
+@media (max-width: 1025px) {
+  .h-resp-65 {
+    min-height: 65vh !important;
+  }
+}
 @media (max-width: 600px) {
+  .filter-white {
+    filter: brightness(0) invert(1);
+  }
+  .text-sm-white {
+    color: white !important;
+  }
+  .bg-sm-purple {
+    background: #5e69db !important;
+  }
   .sale-tag {
     position: absolute;
     bottom: -4%;
@@ -221,9 +242,6 @@ table {
   }
   .ant-layout-content {
     padding: 10px !important;
-  }
-  .h-resp-65 {
-    height: 65vh;
   }
 }
 @media (min-width: 766px) {

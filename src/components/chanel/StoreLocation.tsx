@@ -15,6 +15,7 @@ function StoreLocation({
   nextStep,
   handleChangeLocation,
   values,
+  platform,
   step,
   flag,
   prevStep,
@@ -33,7 +34,7 @@ function StoreLocation({
         <form>
           <div className="row mx-auto">
             <div className="col-12 my-2 d-block d-xl-none px-0">
-              <MbProgressBar step={step} />
+              <MbProgressBar step={step} platform={platform} />
             </div>
             <div className="col-xl-8 shade-Channel bg-white br-8 mt-2">
               <button
@@ -46,7 +47,7 @@ function StoreLocation({
                   Previous step
                 </div>
               </button>
-              <div className="row mx-auto px-lg-5 px-md-3">
+              <div className="row mx-auto px-lg-5 px-md-3 h-100 h-resp-65">
                 <div className="text-center col-10 mt-2 mx-auto">
                   <h5 className="font-weight-bold">
                     Where is your store based?
@@ -54,12 +55,18 @@ function StoreLocation({
                 </div>
                 <div className="text-center col-12 col-md-10 mx-auto">
                   <h6 className="">
-                    No worries! With the Ebay Global shipping program you will
-                    be able to sell everywhere, we need to know the country your
-                    eBay account is registered in.
+                    {platform == "ebay"
+                      ? "No worries! With the Ebay Global shipping program you will be able to sell everywhere, we need to know the country your Ebay account is registered in."
+                      : platform == "amazon"
+                      ? "No worries! You can request to sell in other countries, we need to know the one your account is registered in."
+                      : "No worries! you can create different stores linked to different countries. We need to manage them separately as some suppliers have different prices and shipping times for each country."}
                   </h6>
                 </div>
-                <div className="col-4 mb-2">
+                <div
+                  className={`col-4 mb-2 ${
+                    platform == "amazon" ? "d-none" : ""
+                  }`}
+                >
                   <label className="">
                     <input
                       type="radio"
@@ -85,7 +92,11 @@ function StoreLocation({
                     <div className="panel-body text-center">Australia</div>
                   </label>
                 </div>
-                <div className="col-4 mb-2">
+                <div
+                  className={`col-4 mb-2 ${
+                    platform == "amazon" ? "d-none" : ""
+                  }`}
+                >
                   <label className="">
                     <input
                       type="radio"
@@ -137,7 +148,11 @@ function StoreLocation({
                     <div className="panel-body text-center">Spain</div>
                   </label>
                 </div>
-                <div className="col-4 mb-2">
+                <div
+                  className={`col-4 mb-2 ${
+                    platform == "amazon" ? "d-none" : ""
+                  }`}
+                >
                   <label className="">
                     <input
                       type="radio"
@@ -163,7 +178,11 @@ function StoreLocation({
                     <div className="panel-body text-center">France</div>
                   </label>
                 </div>
-                <div className="col-4 mb-2">
+                <div
+                  className={`col-4 mb-2 ${
+                    platform == "amazon" ? "d-none" : ""
+                  }`}
+                >
                   <label className="">
                     <input
                       type="radio"
@@ -274,8 +293,8 @@ function StoreLocation({
                 </div>
               </div>
             </div>
-            <div className="col-xl-4 d-md-block d-none m-auto">
-              <ProgressBar step={step} />
+            <div className="col-xl-4 d-xl-block d-none m-auto">
+              <ProgressBar platform={platform} step={step} />
             </div>
           </div>
         </form>

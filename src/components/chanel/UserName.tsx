@@ -4,7 +4,15 @@ import Input from "@material-ui/core/Input";
 import back_icon from "../../assets/channel/flags/back.png";
 import ProgressBar from "./ProgressBar";
 import MbProgressBar from "./MbProgressBar";
-function UserName({ nextStep, handleChangeUser, values, step, prevStep }: any) {
+function UserName({
+  nextStep,
+  handleChangeUser,
+  values,
+  step,
+  prevStep,
+  platform,
+  user,
+}: any) {
   const Continue = (e: any) => {
     e.preventDefault();
     nextStep();
@@ -19,7 +27,7 @@ function UserName({ nextStep, handleChangeUser, values, step, prevStep }: any) {
         <form>
           <div className="row mx-auto">
             <div className="col-12 my-2 d-block d-xl-none px-0">
-              <MbProgressBar step={step} />
+              <MbProgressBar step={step} platform={platform} />
             </div>
             <div className="col-lg-8 shade-Channel bg-white br-8 mt-3">
               <button
@@ -35,12 +43,23 @@ function UserName({ nextStep, handleChangeUser, values, step, prevStep }: any) {
               <div className="row mx-auto px-lg-5 px-md-3 h-80vh">
                 <div className="text-center mx-auto col-md-6 mt-2 px-0 px-md-2">
                   <h5 className="font-weight-bold mb-0">
-                    What is your eBay username?
+                    What is your{" "}
+                    {platform == "ebay"
+                      ? " EBay "
+                      : platform == "amazon"
+                      ? " Amazon "
+                      : " Shopify "}
+                    username?
                   </h5>
                 </div>
                 <div className="text-center col-12 col-md-8 mx-auto">
                   <div>
-                    Please make sure that you enter your eBay{" "}
+                    Please make sure that you enter your{" "}
+                    {platform == "ebay"
+                      ? " EBay "
+                      : platform == "amazon"
+                      ? " Amazon "
+                      : " Shopify "}{" "}
                     <span className="font-weight-bold">UserName</span> and not
                     your email address or store name.
                   </div>
@@ -50,7 +69,14 @@ function UserName({ nextStep, handleChangeUser, values, step, prevStep }: any) {
                       className="form-control bg-input-light mt-2"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
-                      placeholder="eBay username"
+                      value={user}
+                      placeholder={
+                        platform == "ebay"
+                          ? " EBay username"
+                          : platform == "amazon"
+                          ? " Amazon username"
+                          : " Shopify username"
+                      }
                       onChange={(e) => handleChangeUser(e.target.value)}
                     />
                     <div
@@ -58,7 +84,15 @@ function UserName({ nextStep, handleChangeUser, values, step, prevStep }: any) {
                     ${values.user == "" ? "text-danger" : "d-none"}
                     `}
                     >
-                      <i>*Please fill in your eBay username</i>
+                      <i>
+                        *Please fill in your{" "}
+                        {platform == "ebay"
+                          ? " EBay "
+                          : platform == "amazon"
+                          ? " Amazon "
+                          : " Shopify "}{" "}
+                        username
+                      </i>
                     </div>
                   </div>
                 </div>
@@ -79,8 +113,8 @@ function UserName({ nextStep, handleChangeUser, values, step, prevStep }: any) {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 d-md-block d-none m-auto">
-              <ProgressBar step={step} />
+            <div className="col-lg-4 d-xl-block d-none m-auto">
+              <ProgressBar step={step} platform={platform} />
             </div>
           </div>
         </form>

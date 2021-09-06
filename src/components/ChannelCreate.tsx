@@ -14,6 +14,7 @@ class ChannelCreate extends Component {
     flag: "",
     location: "",
     api: "",
+    extension: "",
     user: "",
     list: "",
   };
@@ -37,6 +38,9 @@ class ChannelCreate extends Component {
   handleChangeApi = (value: any) => {
     this.setState({ api: value });
   };
+  handleChangeExtension = (value: any) => {
+    this.setState({ extension: value });
+  };
   handleChangeUser = (value: any) => {
     this.setState({ user: value });
   };
@@ -45,13 +49,15 @@ class ChannelCreate extends Component {
   };
 
   render() {
-    const { step, platform, storeLocation, api, user, list } = this.state;
-    const values = { platform, storeLocation, api, user, list };
+    const { step, platform, storeLocation, api, user, list, extension } =
+      this.state;
+    const values = { platform, storeLocation, api, user, list, extension };
 
     switch (step) {
       case 1:
         return (
           <PlatForm
+            platform={this.state.platform}
             nextStep={this.nextStep}
             handleChange={this.handleChange}
             values={values}
@@ -62,6 +68,7 @@ class ChannelCreate extends Component {
       case 2:
         return (
           <StoreLocation
+            platform={this.state.platform}
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             values={values}
@@ -72,6 +79,7 @@ class ChannelCreate extends Component {
       case 3:
         return (
           <Account
+            platform={this.state.platform}
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             // handleChangeApi={this.handleChangeApi}
@@ -82,9 +90,13 @@ class ChannelCreate extends Component {
       case 4:
         return (
           <AccountConnect
+            api={this.state.api}
+            extension={this.state.extension}
+            platform={this.state.platform}
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             handleChangeApi={this.handleChangeApi}
+            handleChangeExtension={this.handleChangeExtension}
             values={values}
             step={step}
           />
@@ -92,6 +104,8 @@ class ChannelCreate extends Component {
       case 5:
         return (
           <UserName
+            platform={this.state.platform}
+            user={this.state.user}
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             handleChangeUser={this.handleChangeUser}
@@ -102,10 +116,12 @@ class ChannelCreate extends Component {
       case 6:
         return (
           <ChooseList
+            platform={this.state.platform}
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             handleChangeList={this.handleChangeList}
             values={values}
+            list={list}
             step={step}
           />
         );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "@material-ui/core";
 
 import ebay_logo from "../../assets/channel/ebay.png";
@@ -10,6 +10,7 @@ function PlatForm({
   nextStep,
   handleChange,
   handleChangePlatform,
+  platform,
   values,
   step,
 }: any) {
@@ -18,6 +19,7 @@ function PlatForm({
     nextStep();
   };
 
+  const [count, setCount] = useState(0);
   return (
     <Container component="main" maxWidth="lg">
       <div>
@@ -40,9 +42,14 @@ function PlatForm({
                       name="product"
                       value={"platform"}
                       className="card-input-element"
-                      onChange={(e) => handleChangePlatform("platform")}
+                      onChange={(e) => handleChangePlatform("ebay")}
                     />
-                    <div className="panel panel-default panel-platform card-input shade-card br-8 h-100">
+                    <div
+                      className={`panel panel-default panel-platform card-input shade-card br-8 h-100
+                    ${platform == "ebay" ? " border border-primary" : ""}
+                    
+                    `}
+                    >
                       <div className="mt-md-2 mb-md-5 mb-md-2">
                         <img
                           src={ebay_logo}
@@ -61,42 +68,20 @@ function PlatForm({
                   </label>
                 </div>
                 <div className="col-md-6 col-4 mt-md-3 px-0 px-md-2">
-                  <label className="h-md-100">
-                    <input
-                      type="radio"
-                      name="product"
-                      value={"platform"}
-                      className="card-input-element"
-                      onChange={(e) => handleChangePlatform("platform")}
-                    />
-                    <div className="panel panel-default panel-platform card-input shade-card br-8 h-100">
-                      <div className="mt-md-2 mb-md-5 mb-md-2">
-                        <img
-                          src={shopify_logo}
-                          className="w-res-100"
-                          alt="ebay logo"
-                        />
-                      </div>
-                      <div className="d-md-block d-none">
-                        <div className=" font-weight-bold">Your own store</div>
-                        <div className="panel-body">
-                          It provides a range of e-commerce tools to help you
-                          build and promote your store.
-                        </div>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-                <div className="col-md-12 col-4 mt-md-3 px-0 px-md-3">
                   <label className="h-100">
                     <input
                       type="radio"
                       name="product"
                       value={"platform"}
                       className="card-input-element"
-                      onChange={(e) => handleChangePlatform("platform")}
+                      onChange={(e) => handleChangePlatform("amazon")}
                     />
-                    <div className="panel panel-default panel-platform card-input shade-card br-8">
+                    <div
+                      className={`panel panel-default panel-platform card-input shade-card br-8 h-100
+                    ${platform == "amazon" ? " border border-primary" : ""}
+                    
+                    `}
+                    >
                       <div className="mt-md-2 mb-md-4 mb-md-5">
                         <img
                           src={amazon_logo}
@@ -124,18 +109,73 @@ function PlatForm({
                     </div>
                   </label>
                 </div>
+                <div className="col-md-12 col-4 mt-md-3 px-0 px-md-3">
+                  <label className="h-md-100">
+                    <input
+                      type="radio"
+                      name="product"
+                      value={"platform"}
+                      className="card-input-element"
+                      onChange={(e) => handleChangePlatform("shopify")}
+                    />
+                    <div
+                      className={`panel panel-default panel-platform card-input shade-card br-8 h-100
+                    ${platform == "shopify" ? " border border-primary" : ""}
+                    
+                    `}
+                    >
+                      <div className="mt-md-2 mb-md-5 mb-md-2">
+                        <img
+                          src={shopify_logo}
+                          className="w-res-100"
+                          alt="ebay logo"
+                        />
+                      </div>
+                      <div className="d-md-block d-none">
+                        <div className=" font-weight-bold">Your own store</div>
+                        <div className="panel-body">
+                          It provides a range of e-commerce tools to help you
+                          build and promote your store.
+                        </div>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+
                 <div className="row d-flex d-md-none mt-2 text-center h-resp-65">
-                  {values.platform == "" ? (
-                    ""
-                  ) : (
-                    <div className="m-auto">
+                  {values.platform == "ebay" ? (
+                    <div className="m-auto px-5">
                       <div className=" font-weight-bold h6 mb-0">
                         Marketplace
                       </div>
-                      <div className="panel-body">
+                      <div className="panel-body px-2">
                         It lets you sell products from any category. Update your
                         listing information and sell anything you wish.
                       </div>
+                    </div>
+                  ) : values.platform == "shopify" ? (
+                    <div className="m-auto px-5">
+                      <div className=" font-weight-bold h6 mb-0">
+                        Your own store
+                      </div>
+                      <div className="panel-body px-2">
+                        It provides a range of e-commerce tools to help you
+                        build and promote your store.
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="m-auto px-5">
+                      <div className=" font-weight-bold h6 mb-0">
+                        Marketplace
+                      </div>
+                      <div className="panel-body px-2">
+                        It gives your products great exposure due to the high
+                        number of visitors. Optimise your titles and item
+                        information to increase sells.
+                      </div>
+                      <i className="font-weight-bold">
+                        *you need to be self-employed to sell on Amazon.
+                      </i>
                     </div>
                   )}
                 </div>
@@ -165,7 +205,7 @@ function PlatForm({
               </div>
             </div>
             <div className="col-lg-4 d-xl-block d-none m-auto">
-              <ProgressBar step={step} />
+              <ProgressBar platform={platform} step={step} />
             </div>
           </div>
         </form>

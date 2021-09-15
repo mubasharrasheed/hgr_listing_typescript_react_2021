@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import { Table } from "antd";
 import img from "../assets/icon.png";
 import SmallTabs from "./SmallComponents/SmallTabs";
-import { columns } from "../data";
+
 import { setTranslations, setDefaultLanguage, useTranslation } from 'react-multi-lang'
 
 
@@ -91,6 +91,51 @@ export default function TableContent() {
       },
     ],
   };
+
+
+  const columns = [
+    {
+      title: "",
+      dataIndex: "img",
+      key: "img",
+    },
+    {
+      title: `${t("Source")}`,
+      dataIndex: "src",
+      key: "src",
+    },
+    {
+      title:`${t("Title")}`,
+      dataIndex: "title",
+      key: "title",
+    },
+    {
+      title:`${t("Sell")}`,
+      dataIndex: "sell",
+      key: "sell",
+    },
+    {
+      title:`${t("Cost")}`,
+      dataIndex: "cost",
+      key: "cost",
+    },
+    {
+      title:`${t("Profile")}`,
+      dataIndex: "profile",
+      key: "profile",
+    },
+    {
+      title:`${t("Markup")}`,
+      dataIndex: "markup",
+      key: "markup",
+    },
+    {
+      title:`${t("Stock")}`,
+      dataIndex: "stock",
+      key: "stock",
+    },
+  ];
+  
   return (
     <React.Fragment>
       <div className="bg-white rounded">

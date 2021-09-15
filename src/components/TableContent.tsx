@@ -32,9 +32,8 @@ export default function TableContent() {
           <div className="w-title">
             {" "}
             <u>
-              {t("acnt")}
-              Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesua
-              ff
+              {t("Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesua ff")}
+              
             </u>{" "}
           </div>
         ),

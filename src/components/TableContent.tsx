@@ -1,47 +1,56 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Table } from "antd";
 import img from "../assets/icon.png";
 import SmallTabs from "./SmallComponents/SmallTabs";
 import { columns } from "../data";
 import { setTranslations, setDefaultLanguage, useTranslation } from 'react-multi-lang'
-const data: any = [];
 
-for (let i = 0; i < 46; i++) {
-  data.push({
-    key: i,
-    img: <img src={img} height={30} alt="" />,
-    // item: 1234546789,
-    src: "Amazon",
-    title: (
-      <div className="w-title">
-        {" "}
-        <u>
-          Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesua
-          ff
-        </u>{" "}
-      </div>
-    ),
-    sell: 30.4,
-    cost: 34.44,
-    profile: 309,
-    markup: <div className="pl-2">30%</div>,
-    stock: (
-      <div className="pl-1">
-        <i className="d-green far fa-check-circle"></i> 2
-      </div>
-    ),
-  });
-}
+
+
 
 const windowwidth = window.innerWidth;
 export default function TableContent() {
   const [selectedRowKeys, setSelectRowKeys] = useState([]);
+  const [data1, setData] = useState([]);
+
   const t = useTranslation()
   const onSelectChange = (selectedRowKeys: any) => {
     setSelectRowKeys(selectedRowKeys);
     const selected = selectedRowKeys.length;
   };
-
+  
+ 
+  useEffect(() => {
+    const data: any = [];
+    for (let i = 0; i < 46; i++) {
+      data.push({
+        key: i,
+        img: <img src={img} height={30} alt="" />,
+        // item: 1234546789,
+        src: "Amazon",
+        title: (
+          <div className="w-title">
+            {" "}
+            <u>
+              {t("acnt")}
+              Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesua
+              ff
+            </u>{" "}
+          </div>
+        ),
+        sell: 30.4,
+        cost: 34.44,
+        profile: 309,
+        markup: <div className="pl-2">30%</div>,
+        stock: (
+          <div className="pl-1">
+            <i className="d-green far fa-check-circle"></i> 2
+          </div>
+        ),
+      });
+    }
+    setData(data)
+  }, [])
   const rowSelection = {
     selectedRowKeys,
     onChange: onSelectChange,
@@ -130,7 +139,7 @@ export default function TableContent() {
         <Table
           rowSelection={rowSelection}
           columns={columns}
-          dataSource={data}
+          dataSource={data1}
         />
       </div>
     </React.Fragment>

@@ -1,25 +1,11 @@
+import React, { useState } from "react";
 import { Table } from "antd";
-import React from "react";
 import img from "../assets/icon.png";
 import SmallTabs from "./SmallComponents/SmallTabs";
 import { columns } from "../data";
-import {
-  setTranslations,
-  setDefaultLanguage,
-  withTranslation,
-} from "react-multi-lang";
-import  { t } from "react-multi-lang";
-import en from "../translation.json";
-setTranslations({ en });
-setDefaultLanguage("en");
+import { setTranslations, setDefaultLanguage, useTranslation } from 'react-multi-lang'
 const data: any = [];
 
-const windowwidth = window.innerWidth;
-// type Props = {
-//   value: t
-// };
-
-console.log(windowwidth);
 for (let i = 0; i < 46; i++) {
   data.push({
     key: i,
@@ -47,114 +33,106 @@ for (let i = 0; i < 46; i++) {
   });
 }
 
-class TableContent extends React.Component {
-  state = {
-    selectedRowKeys: [], // Check here to configure the default column
-  };
-  onSelectChange = (selectedRowKeys: any) => {
-    this.setState({ selectedRowKeys });
-    console.log(selectedRowKeys.length);
+const windowwidth = window.innerWidth;
+export default function TableContent() {
+  const [selectedRowKeys, setSelectRowKeys] = useState([]);
+  const t = useTranslation()
+  const onSelectChange = (selectedRowKeys: any) => {
+    setSelectRowKeys(selectedRowKeys);
     const selected = selectedRowKeys.length;
   };
-  render() {
-   
-    const { selectedRowKeys } = this.state;
-    const rowSelection = {
-      selectedRowKeys,
-      onChange: this.onSelectChange,
-      selections: [
-        Table.SELECTION_ALL,
-        Table.SELECTION_INVERT,
-        Table.SELECTION_NONE,
-        {
-          key: "odd",
-          text: "Select Odd Row",
-          onSelect: (changableRowKeys: any) => {
-            let newSelectedRowKeys = [];
-            newSelectedRowKeys = changableRowKeys.filter(
-              (key: any, index: any) => {
-                if (index % 2 !== 0) {
-                  return false;
-                }
-                return true;
-              }
-            );
-            this.setState({ selectedRowKeys: newSelectedRowKeys });
-          },
-        },
-        {
-          key: "even",
-          text: "Select Even Row",
-          onSelect: (changableRowKeys: any) => {
-            let newSelectedRowKeys = [];
-            newSelectedRowKeys = changableRowKeys.filter(
-              (key: any, index: any) => {
-                if (index % 2 !== 0) {
-                  return true;
-                }
+
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+    selections: [
+      Table.SELECTION_ALL,
+      Table.SELECTION_INVERT,
+      Table.SELECTION_NONE,
+      {
+        key: "odd",
+        text: "Select Odd Row",
+        onSelect: (changableRowKeys: any) => {
+          let newSelectedRowKeys = [];
+          newSelectedRowKeys = changableRowKeys.filter(
+            (key: any, index: any) => {
+              if (index % 2 !== 0) {
                 return false;
               }
-            );
-            this.setState({ selectedRowKeys: newSelectedRowKeys });
-          },
+              return true;
+            }
+          );
+          setSelectRowKeys(newSelectedRowKeys);
         },
-      ],
-    };
-    // const { t() } = this.props;
-    console.log('=--this.props', this.props)
-    return (
-      <React.Fragment>
-        <div className="bg-white rounded">
-          <div className="row mx-auto p-1 align-items-center">
-            {selectedRowKeys.length ? (
-              <div className="col-lg-6 col-md-8 mr-3 bg-lighter br-15 p-2">
-                <div className="row d-blue">
-                  {selectedRowKeys.length ? (
-                    <SmallTabs
-                      title={`Edit ${selectedRowKeys.length} ${
-                        windowwidth < 900 ? "" :' t("acnt")'
-                      } `}
-                      last={false}
-                    />
-                  ) : (
-                    ""
-                  )}
-                  {selectedRowKeys.length ? (
-                    <SmallTabs
-                      title={`Copy ${selectedRowKeys.length} ${
-                        windowwidth < 900 ? "" : "Listings"
-                      } `}
-                      border={true}
-                      last={false}
-                    />
-                  ) : (
-                    ""
-                  )}
-                  {selectedRowKeys.length ? (
-                    <SmallTabs
-                      title={`Optimize ${selectedRowKeys.length} ${
-                        windowwidth < 900 ? "" : "Listings"
-                      } `}
-                      last={false}
-                    />
-                  ) : (
-                    ""
-                  )}
-                </div>
+      },
+      {
+        key: "even",
+        text: "Select Even Row",
+        onSelect: (changableRowKeys: any) => {
+          let newSelectedRowKeys = [];
+          newSelectedRowKeys = changableRowKeys.filter(
+            (key: any, index: any) => {
+              if (index % 2 !== 0) {
+                return true;
+              }
+              return false;
+            }
+          );
+          setSelectRowKeys(newSelectedRowKeys);
+        },
+      },
+    ],
+  };
+  return (
+    <React.Fragment>
+      <div className="bg-white rounded">
+        <div className="row mx-auto p-1 align-items-center">
+          {selectedRowKeys.length ? (
+            <div className="col-lg-6 col-md-8 mr-3 bg-lighter br-15 p-2">
+              <div className="row d-blue">
+                {selectedRowKeys.length ? (
+                  <SmallTabs
+                    title={`Edit ${selectedRowKeys.length} ${
+                      windowwidth < 900 ? "" :t("acnt")
+                    } `}
+                    last={false}
+                  />
+                ) : (
+                  ""
+                )}
+                {selectedRowKeys.length ? (
+                  <SmallTabs
+                    title={`Copy ${selectedRowKeys.length} ${
+                      windowwidth < 900 ? "" : "Listings"
+                    } `}
+                    border={true}
+                    last={false}
+                  />
+                ) : (
+                  ""
+                )}
+                {selectedRowKeys.length ? (
+                  <SmallTabs
+                    title={`Optimize ${selectedRowKeys.length} ${
+                      windowwidth < 900 ? "" : "Listings"
+                    } `}
+                    last={false}
+                  />
+                ) : (
+                  ""
+                )}
               </div>
-            ) : (
-              ""
-            )}
-          </div>
-          <Table
-            rowSelection={rowSelection}
-            columns={columns}
-            dataSource={data}
-          />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
-      </React.Fragment>
-    );
-  }
+        <Table
+          rowSelection={rowSelection}
+          columns={columns}
+          dataSource={data}
+        />
+      </div>
+    </React.Fragment>
+  );
 }
-
-export default withTranslation(TableContent);

@@ -11,6 +11,7 @@ import us_flag from "../../assets/channel/flags/US.png";
 import back_icon from "../../assets/channel/flags/back.png";
 import ProgressBar from "./ProgressBar";
 import MbProgressBar from "./MbProgressBar";
+import ButtonComp from './component/ButttonCom'
 import {
   setTranslations,
   setDefaultLanguage,
@@ -268,7 +269,8 @@ function StoreLocation({
                       ? "  *Please select a country in order to proceed"
                       : ""}
                   </div>
-                  <button
+                  <ButtonComp onClick={Continue}  title={t("nxt")} disabled={values.storeLocation == ""} />
+                  {/* <button
                     onClick={Continue}
                     type="submit"
                     disabled={values.storeLocation == ""}
@@ -283,7 +285,7 @@ function StoreLocation({
                       <span className="font-weight-bold">{t("nxt")}</span>
                       <i className="fas fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                     </div>
-                  </button>
+                  </button> */}
                   <div className="text-danger w-100 text-center mb-2 small d-md-block d-none">
                     {values.storeLocation == "" ? t("strchck") : ""}
                   </div>

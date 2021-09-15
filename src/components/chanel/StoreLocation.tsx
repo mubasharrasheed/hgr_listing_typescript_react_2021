@@ -11,10 +11,20 @@ import us_flag from "../../assets/channel/flags/US.png";
 import back_icon from "../../assets/channel/flags/back.png";
 import ProgressBar from "./ProgressBar";
 import MbProgressBar from "./MbProgressBar";
+import {
+  setTranslations,
+  setDefaultLanguage,
+  useTranslation,
+} from "react-multi-lang";
+import en from "../../translation.json";
+import Previousstep from "../SmallComponents/Previousstep";
+setTranslations({ en });
+setDefaultLanguage("en");
 function StoreLocation({
   nextStep,
   handleChangeLocation,
   values,
+  platform,
   step,
   flag,
   prevStep,
@@ -27,39 +37,35 @@ function StoreLocation({
     e.preventDefault();
     prevStep();
   };
+  const t = useTranslation();
   return (
     <Container component="main" maxWidth="lg">
       <div>
         <form>
           <div className="row mx-auto">
             <div className="col-12 my-2 d-block d-xl-none px-0">
-              <MbProgressBar step={step} />
+              <MbProgressBar step={step} platform={platform} />
             </div>
-            <div className="col-xl-8 shade-Channel bg-white br-8 mt-2">
-              <button
-                onClick={Previous}
-                type="submit"
-                className="bg-trans border-0 text-left lh-1"
-              >
-                <img src={back_icon} height="30" alt="previous_icon" />
-                <div className="d-purple font-weight-bold small d-xl-block d-none">
-                  Previous step
-                </div>
-              </button>
-              <div className="row mx-auto px-lg-5 px-md-3">
+            <div className="col-xl-8 shade-Channel mb-no-shade bg-white br-8 mt-2 pt-1">
+              <Previousstep Previous={Previous} />
+              <div className="row mx-auto px-lg-5 px-md-3 h-resp-65">
                 <div className="text-center col-10 mt-2 mx-auto">
-                  <h5 className="font-weight-bold">
-                    Where is your store based?
-                  </h5>
+                  <h5 className="font-weight-bold">{t("bar2")}?</h5>
                 </div>
                 <div className="text-center col-12 col-md-10 mx-auto">
                   <h6 className="">
-                    No worries! With the Ebay Global shipping program you will
-                    be able to sell everywhere, we need to know the country your
-                    eBay account is registered in.
+                    {platform == "ebay"
+                      ? t("storebay")
+                      : platform == "amazon"
+                      ? t("storamz")
+                      : t("storshp")}
                   </h6>
                 </div>
-                <div className="col-4 mb-2">
+                <div
+                  className={`col-4 mb-2 ${
+                    platform == "amazon" ? "d-none" : ""
+                  }`}
+                >
                   <label className="">
                     <input
                       type="radio"
@@ -85,7 +91,11 @@ function StoreLocation({
                     <div className="panel-body text-center">Australia</div>
                   </label>
                 </div>
-                <div className="col-4 mb-2">
+                <div
+                  className={`col-4 mb-2 ${
+                    platform == "amazon" ? "d-none" : ""
+                  }`}
+                >
                   <label className="">
                     <input
                       type="radio"
@@ -137,7 +147,11 @@ function StoreLocation({
                     <div className="panel-body text-center">Spain</div>
                   </label>
                 </div>
-                <div className="col-4 mb-2">
+                <div
+                  className={`col-4 mb-2 ${
+                    platform == "amazon" ? "d-none" : ""
+                  }`}
+                >
                   <label className="">
                     <input
                       type="radio"
@@ -163,7 +177,11 @@ function StoreLocation({
                     <div className="panel-body text-center">France</div>
                   </label>
                 </div>
-                <div className="col-4 mb-2">
+                <div
+                  className={`col-4 mb-2 ${
+                    platform == "amazon" ? "d-none" : ""
+                  }`}
+                >
                   <label className="">
                     <input
                       type="radio"
@@ -244,7 +262,12 @@ function StoreLocation({
                   </label>
                 </div>
                 <div className="col-12"></div>
-                <div className="mx-md-auto ml-auto mt-md-4 text-center">
+                <div className="mx-md-auto ml-auto mt-md-4 text-right text-md-center w-100 next-fix">
+                  <div className="text-danger w-100 text-center small d-block d-md-none">
+                    {values.storeLocation == ""
+                      ? "  *Please select a country in order to proceed"
+                      : ""}
+                  </div>
                   <button
                     onClick={Continue}
                     type="submit"
@@ -257,20 +280,18 @@ function StoreLocation({
                     }`}
                   >
                     <div className="d-flex align-items-center">
-                      <span className="font-weight-bold">Next</span>
+                      <span className="font-weight-bold">{t("nxt")}</span>
                       <i className="fas fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                     </div>
                   </button>
-                </div>
-                <div className="text-danger w-100 text-center mb-2 small">
-                  {values.storeLocation == ""
-                    ? "  *Please select a country in order to proceed"
-                    : ""}
+                  <div className="text-danger w-100 text-center mb-2 small d-md-block d-none">
+                    {values.storeLocation == "" ? t("strchck") : ""}
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-xl-4 d-md-block d-none m-auto">
-              <ProgressBar step={step} />
+            <div className="col-xl-4 d-xl-block d-none m-auto">
+              <ProgressBar platform={platform} step={step} />
             </div>
           </div>
         </form>

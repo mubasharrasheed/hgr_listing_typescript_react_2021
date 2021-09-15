@@ -77,8 +77,12 @@ button:focus {
 .purple {
   color: #9694ff;
 }
+
 .d-purple {
   color: #6a74de;
+}
+.bg-d-purple {
+  background-color: #6a74de;
 }
 .bg-purple {
   background-color: #9694ff;
@@ -184,12 +188,67 @@ table {
 .drop-down {
   width: 23vw;
 }
+.h-80vh {
+  height: 80vh;
+}
+.h-15p {
+  height: 15px;
+}
+.next-fix {
+  position: fixed;
+  bottom: 4%;
+  right: 14%;
+}
 @media (min-width: 1025px) {
   .text-xl-center {
     text-align: center;
   }
+  .MuiContainer-maxWidthLg {
+    height: 100vh !important;
+    align-items: center;
+    display: flex !important;
+  }
+}
+@media (max-width: 1025px) {
+  .h-resp-65 {
+    min-height: 65vh !important;
+  }
+}
+@media (max-width: 768px) {
+  .mb-no-shade {
+    box-shadow: none !important;
+  }
+  .next-fix {
+    position: fixed;
+    bottom: 1%;
+    right: 3%;
+  }
+  .text-mb-right {
+    text-align: right !important;
+  }
 }
 @media (max-width: 600px) {
+  .filter-white {
+    filter: brightness(0) invert(1);
+  }
+  .text-sm-white {
+    color: white !important;
+  }
+  .bg-sm-purple {
+    background: #5e69db !important;
+  }
+  .sale-tag {
+    position: absolute;
+    bottom: -4%;
+    width: fit-content;
+    left: 23%;
+  }
+  .w-res-100 {
+    width: 100%;
+  }
+  .panel-platform {
+    height: 50px !important;
+  }
   .MuiContainer-root {
     padding: 0 !important;
   }
@@ -206,5 +265,8 @@ table {
 @media (min-width: 766px) {
   .text-md-left {
     text-align: left !important;
+  }
+  .h-md-100 {
+    height: 100%;
   }
 }

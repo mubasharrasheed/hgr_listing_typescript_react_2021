@@ -11,6 +11,15 @@ import us_flag from "../../assets/channel/flags/US.png";
 import back_icon from "../../assets/channel/flags/back.png";
 import ProgressBar from "./ProgressBar";
 import MbProgressBar from "./MbProgressBar";
+import {
+  setTranslations,
+  setDefaultLanguage,
+  useTranslation,
+} from "react-multi-lang";
+import en from "../../translation.json";
+import Previousstep from "../SmallComponents/Previousstep";
+setTranslations({ en });
+setDefaultLanguage("en");
 function Account({
   nextStep,
   handleChange,
@@ -18,6 +27,7 @@ function Account({
   step,
   flag,
   prevStep,
+  platform,
 }: any) {
   const Continue = (e: any) => {
     e.preventDefault();
@@ -27,71 +37,96 @@ function Account({
     e.preventDefault();
     prevStep();
   };
+  const t = useTranslation();
   return (
     <Container component="main" maxWidth="lg">
       <div>
         <form>
           <div className="row mx-auto">
             <div className="col-12 my-2 d-block d-xl-none px-0">
-              <MbProgressBar step={step} />
+              <MbProgressBar platform={platform} step={step} />
             </div>
-            <div className="col-xl-8 shade-Channel bg-white br-8 mt-2">
-              <button
-                onClick={Previous}
-                type="submit"
-                className="bg-trans border-0 text-left lh-1"
-              >
-                <img src={back_icon} height="30" alt="previous_icon" />
-                <div className="d-purple font-weight-bold small">
-                  Previous step
-                </div>
-              </button>
+            <div className="col-xl-8 shade-Channel mb-no-shade bg-white br-8 mt-2">
+              <Previousstep Previous={Previous} />
               <div className="row mx-auto px-lg-5 px-md-3">
                 <div className="text-center mx-auto col-10 mt-2">
                   <h5 className="font-weight-bold">
-                    Do you have an eBay account?
+                    {platform == "ebay"
+                      ? t("doyou") + " eBay " + t("acnt") + "?"
+                      : platform == "amazon"
+                      ? t("amzseller")
+                      : t("shpstor")}
                   </h5>
+                  {platform == "amazon" ? <i>{t("acntchk")}</i> : ""}
                 </div>
                 <div className="text-left col-12 col-md-10 mx-auto">
-                  <h6 className="font-weight-bold">
-                    No eBay account? We will happily show you How to get
-                    started!
+                  {/* {platform !== "shopify" ? (
+                    ""
+                  ) : (
+                    <div className="w-100 text-center">
+                      <button className="h6 my-3 bg-d-purple br-8 text-white btn py-2 px-3 mx-auto">
+                        Yes, I’m a seller on Shopify
+                      </button>
+                    </div>
+                  )} */}
+                  <h6 className="font-weight-bold w-100">
+                    {platform == "ebay"
+                      ? t("noebay")
+                      : platform == "amazon"
+                      ? t("noamz")
+                      : t("noshop")}
                   </h6>
                 </div>
                 <div className="text-left col-12 col-md-10 mx-auto">
                   <div className="">
-                    Before you start selling, you’ll need an eBay account. If
-                    you don’t already have one, you’ll need to register. You can
-                    choose between a personal or business account.
+                    {platform == "ebay" ? (
+                      t("ebayacntslct")
+                    ) : platform == "amazon" ? (
+                      t("amznacntslct")
+                    ) : (
+                      <>
+                        {t("nvgt")}
+                        <span className="sky">{t("shpweb")}</span>{" "}
+                        {t("shppara1")}
+                        <span className="mt-3"></span>
+                        {t("shppara2")}
+                      </>
+                    )}
                   </div>
                 </div>
                 <div className="text-left col-12 col-md-10 mx-auto my-2">
                   <div className="">
-                    If you plan to sell casually, like selling items you no
-                    longer need or want, a personal account is the best option.
-                    Pick a business account if you want to sell large
-                    quantities, or have items that you’ve made or bought to
-                    resell.
+                    {platform == "ebay" ? (
+                      <>{t("ebay1")}</>
+                    ) : platform == "shopify" ? (
+                      t("shppara3")
+                    ) : (
+                      t("amznpara1")
+                    )}
                   </div>
                 </div>
                 <div className="text-left col-12 col-md-10 mx-auto">
                   <div className="">
-                    To get started, we set up a dedicated page that will show
-                    you all you need to Know in order to set up the Amazon
-                    account and the business seller program.
+                    {platform == "amazon" ? <>{t("amznpara2")}</> : ""}
                   </div>
                 </div>
                 <div className="text-left col-12 col-md-10 mx-auto">
                   <a>
                     <div className="d-flex align-items-center d-blue">
                       <span className="font-weight-bold">
-                        How to become an eBay seller
+                        {t("howtobcm")}
+                        {platform == "ebay"
+                          ? " eBay "
+                          : platform == "amazon"
+                          ? " Amazon "
+                          : " Shopify "}
+                        {t("seller")}
                       </span>
                     </div>
                   </a>
                 </div>
                 <div className="border-bottom mt-2 mb-lg-5  col-11 col-md-9 mx-auto"></div>
-                <div className="mx-md-auto ml-auto mt-5 pt-lg-5 mb-2 text-center">
+                <div className="mx-md-auto ml-auto mt-5 pt-lg-5 mb-2 text-right text-md-center w-100 next-fix">
                   <button
                     onClick={Continue}
                     type="submit"
@@ -99,7 +134,11 @@ function Account({
                   >
                     <div className="d-flex align-items-center">
                       <span className="font-weight-bold">
-                        Yes, I do have an eBay account
+                        {platform == "ebay"
+                          ? t("haveebayacnt")
+                          : platform == "amazon"
+                          ? t("haveamznacnt")
+                          : t("haveshopacnt")}
                       </span>
                       <i className="fas fa-long-arrow-alt-right ml-2 fa-lg pt-1"></i>
                     </div>
@@ -107,8 +146,8 @@ function Account({
                 </div>
               </div>
             </div>
-            <div className="col-xl-4 d-md-block d-none m-auto">
-              <ProgressBar step={step} />
+            <div className="col-xl-4 d-xl-block d-none m-auto">
+              <ProgressBar platform={platform} step={step} />
             </div>
           </div>
         </form>

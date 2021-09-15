@@ -11,7 +11,7 @@ import us_flag from "../../assets/channel/flags/US.png";
 import back_icon from "../../assets/channel/flags/back.png";
 import ProgressBar from "./ProgressBar";
 import MbProgressBar from "./MbProgressBar";
-import ButtonComp from './component/ButttonCom'
+import ButtonComp from "./component/ButttonCom";
 import {
   setTranslations,
   setDefaultLanguage,
@@ -19,6 +19,7 @@ import {
 } from "react-multi-lang";
 import en from "../../translation.json";
 import Previousstep from "../SmallComponents/Previousstep";
+import Flag from "./component/Flag";
 setTranslations({ en });
 setDefaultLanguage("en");
 function StoreLocation({
@@ -38,6 +39,50 @@ function StoreLocation({
     e.preventDefault();
     prevStep();
   };
+  const flags = [
+    {
+      name: "Australia",
+      path: aus_flag,
+      platform: "ebay",
+      slug: "australia",
+    },
+    {
+      name: "Germany",
+      path: ger_flag,
+      platform: "ebay",
+      slug: "germany",
+    },
+    {
+      name: "Spain",
+      path: sp_flag,
+      platform: "amazon",
+      slug: "spain",
+    },
+    {
+      name: "France",
+      path: fr_flag,
+      platform: "ebay",
+      slug: "france",
+    },
+    {
+      name: "Italy",
+      path: it_flag,
+      platform: "ebay",
+      slug: "italy",
+    },
+    {
+      name: "United Kingdom",
+      path: uk_flag,
+      platform: "amazon",
+      slug: "uk",
+    },
+    {
+      name: "United States of America",
+      path: us_flag,
+      platform: "amazon",
+      slug: "us",
+    },
+  ];
   const t = useTranslation();
   return (
     <Container component="main" maxWidth="lg">
@@ -62,6 +107,18 @@ function StoreLocation({
                       : t("storshp")}
                   </h6>
                 </div>
+                {flags.map((i) => (
+                  <Flag
+                    platform={platform}
+                    currentPlatform={i.platform}
+                    // handleChangeLocation={i.slug}
+                    flag={i.path}
+                    name={i.name}
+                    location={values.storeLocation}
+                    handleChangeLocation={handleChangeLocation}
+                  />
+                ))}
+                {/* 
                 <div
                   className={`col-4 mb-2 ${
                     platform == "amazon" ? "d-none" : ""
@@ -91,8 +148,8 @@ function StoreLocation({
                     </div>
                     <div className="panel-body text-center">Australia</div>
                   </label>
-                </div>
-                <div
+                </div> */}
+                {/* <div
                   className={`col-4 mb-2 ${
                     platform == "amazon" ? "d-none" : ""
                   }`}
@@ -261,7 +318,7 @@ function StoreLocation({
                       United States of America
                     </div>
                   </label>
-                </div>
+                </div> */}
                 <div className="col-12"></div>
                 <div className="mx-md-auto ml-auto mt-md-4 text-right text-md-center w-100 next-fix">
                   <div className="text-danger w-100 text-center small d-block d-md-none">
@@ -269,7 +326,11 @@ function StoreLocation({
                       ? "  *Please select a country in order to proceed"
                       : ""}
                   </div>
-                  <ButtonComp onClick={Continue}  title={t("nxt")} disabled={values.storeLocation == ""} />
+                  <ButtonComp
+                    onClick={Continue}
+                    title={t("nxt")}
+                    disabled={values.storeLocation == ""}
+                  />
                   {/* <button
                     onClick={Continue}
                     type="submit"

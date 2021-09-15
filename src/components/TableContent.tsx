@@ -1,25 +1,25 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Table } from "antd";
 import img from "../assets/icon.png";
 import SmallTabs from "./SmallComponents/SmallTabs";
 
-import { setTranslations, setDefaultLanguage, useTranslation } from 'react-multi-lang'
-
-
-
+import {
+  setTranslations,
+  setDefaultLanguage,
+  useTranslation,
+} from "react-multi-lang";
 
 const windowwidth = window.innerWidth;
 export default function TableContent() {
   const [selectedRowKeys, setSelectRowKeys] = useState([]);
   const [data1, setData] = useState([]);
 
-  const t = useTranslation()
+  const t = useTranslation();
   const onSelectChange = (selectedRowKeys: any) => {
     setSelectRowKeys(selectedRowKeys);
     const selected = selectedRowKeys.length;
   };
-  
- 
+
   useEffect(() => {
     const data: any = [];
     for (let i = 0; i < 46; i++) {
@@ -32,8 +32,9 @@ export default function TableContent() {
           <div className="w-title">
             {" "}
             <u>
-              {t("Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesua ff")}
-              
+              {t(
+                "Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesua ff"
+              )}
             </u>{" "}
           </div>
         ),
@@ -48,8 +49,8 @@ export default function TableContent() {
         ),
       });
     }
-    setData(data)
-  }, [])
+    setData(data);
+  }, []);
   const rowSelection = {
     selectedRowKeys,
     onChange: onSelectChange,
@@ -92,7 +93,6 @@ export default function TableContent() {
     ],
   };
 
-
   const columns = [
     {
       title: "",
@@ -105,37 +105,37 @@ export default function TableContent() {
       key: "src",
     },
     {
-      title:`${t("Title")}`,
+      title: `${t("Title")}`,
       dataIndex: "title",
       key: "title",
     },
     {
-      title:`${t("Sell")}`,
+      title: `${t("Sell")}`,
       dataIndex: "sell",
       key: "sell",
     },
     {
-      title:`${t("Cost")}`,
+      title: `${t("Cost")}`,
       dataIndex: "cost",
       key: "cost",
     },
     {
-      title:`${t("Profile")}`,
+      title: `${t("Profile")}`,
       dataIndex: "profile",
       key: "profile",
     },
     {
-      title:`${t("Markup")}`,
+      title: `${t("Markup")}`,
       dataIndex: "markup",
       key: "markup",
     },
     {
-      title:`${t("Stock")}`,
+      title: `${t("Stock")}`,
       dataIndex: "stock",
       key: "stock",
     },
   ];
-  
+
   return (
     <React.Fragment>
       <div className="bg-white rounded">
@@ -145,8 +145,8 @@ export default function TableContent() {
               <div className="row d-blue">
                 {selectedRowKeys.length ? (
                   <SmallTabs
-                    title={`Edit ${selectedRowKeys.length} ${
-                      windowwidth < 900 ? "" :t("acnt")
+                    title={`${t("edt")} ${selectedRowKeys.length} ${
+                      windowwidth < 900 ? "" : t("acnt")
                     } `}
                     last={false}
                   />
@@ -155,8 +155,8 @@ export default function TableContent() {
                 )}
                 {selectedRowKeys.length ? (
                   <SmallTabs
-                    title={`Copy ${selectedRowKeys.length} ${
-                      windowwidth < 900 ? "" : "Listings"
+                    title={`${t("copy")}  ${selectedRowKeys.length} ${
+                      windowwidth < 900 ? "" : t("ls")
                     } `}
                     border={true}
                     last={false}
@@ -166,8 +166,8 @@ export default function TableContent() {
                 )}
                 {selectedRowKeys.length ? (
                   <SmallTabs
-                    title={`Optimize ${selectedRowKeys.length} ${
-                      windowwidth < 900 ? "" : "Listings"
+                    title={`${t("opt")} ${selectedRowKeys.length} ${
+                      windowwidth < 900 ? "" : t("ls")
                     } `}
                     last={false}
                   />
